@@ -208,7 +208,8 @@ SocialCalc.SpreadsheetControl = function() {
       {func: SocialCalc.SpreadsheetControlStatuslineCallback,
        params: {statuslineid: this.idPrefix+"statusline",
                 recalcid1: this.idPrefix+"divider_recalc",
-                recalcid2: this.idPrefix+"button_recalc"}};
+                recalcid2: this.idPrefix+"button_recalc"}
+      };
 
    SocialCalc.CurrentSpreadsheetControlObject = this; // remember this for rendezvousing on events
 
@@ -339,7 +340,7 @@ SocialCalc.SpreadsheetControl = function() {
          var scc = SocialCalc.Constants;
 
          viewobj.values.sheetspanel = {
-//            name: "sheet",
+           name: "sheet",
             colorchooser: {id: s.idPrefix+"scolorchooser"},
             formatnumber: {setting: "numberformat", type: "PopupList", id: s.idPrefix+"formatnumber",
                initialdata: scc.SCFormatNumberFormats},
@@ -662,176 +663,176 @@ SocialCalc.SpreadsheetControl = function() {
 
    // Sort
 
-   this.tabnums.sort = this.tabs.length;
-   this.tabs.push({name: "sort", text: "Sort", html:
-      ' <div id="%id.sorttools" style="display:none;">'+
-      '  <table cellspacing="0" cellpadding="0"><tr>'+
-      '   <td style="vertical-align:top;padding-right:4px;width:160px;">'+
-      '    <div style="%tbt.">%loc!Set Cells To Sort!</div>'+
-      '    <select id="%id.sortlist" size="1" onfocus="%s.CmdGotFocus(this);"><option selected>[select range]</option></select>'+
-      '    <input type="button" value="%loc!OK!" onclick="%s.DoCmd(this, \'ok-setsort\');" style="font-size:x-small;">'+
-      '   </td>'+
-      '   <td style="vertical-align:middle;padding-right:16px;width:100px;text-align:right;">'+
-      '    <div style="%tbt.">&nbsp;</div>'+
-      '    <input type="button" id="%id.sortbutton" value="%loc!Sort Cells! A1:A1" onclick="%s.DoCmd(this, \'dosort\');" style="visibility:hidden;">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:16px;">'+
-      '    <table cellspacing="0" cellpadding="0"><tr>'+
-      '     <td style="vertical-align:top;">'+
-      '      <div style="%tbt.">%loc!Major Sort!</div>'+
-      '      <select id="%id.majorsort" size="1" onfocus="%s.CmdGotFocus(this);"></select>'+
-      '     </td><td>'+
-      '      <input type="radio" name="majorsort" id="%id.majorsortup" value="up" checked><span style="font-size:x-small;color:#FFF;">%loc!Up!</span><br>'+
-      '      <input type="radio" name="majorsort" id="%id.majorsortdown" value="down"><span style="font-size:x-small;color:#FFF;">%loc!Down!</span>'+
-      '     </td>'+
-      '    </tr></table>'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:16px;">'+
-      '    <table cellspacing="0" cellpadding="0"><tr>'+
-      '     <td style="vertical-align:top;">'+
-      '      <div style="%tbt.">%loc!Minor Sort!</div>'+
-      '      <select id="%id.minorsort" size="1" onfocus="%s.CmdGotFocus(this);"></select>'+
-      '     </td><td>'+
-      '      <input type="radio" name="minorsort" id="%id.minorsortup" value="up" checked><span style="font-size:x-small;color:#FFF;">%loc!Up!</span><br>'+
-      '      <input type="radio" name="minorsort" id="%id.minorsortdown" value="down"><span style="font-size:x-small;color:#FFF;">%loc!Down!</span>'+
-      '     </td>'+
-      '    </tr></table>'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:16px;">'+
-      '    <table cellspacing="0" cellpadding="0"><tr>'+
-      '     <td style="vertical-align:top;">'+
-      '      <div style="%tbt.">%loc!Last Sort!</div>'+
-      '      <select id="%id.lastsort" size="1" onfocus="%s.CmdGotFocus(this);"></select>'+
-      '     </td><td>'+
-      '      <input type="radio" name="lastsort" id="%id.lastsortup" value="up" checked><span style="font-size:x-small;color:#FFF;">%loc!Up!</span><br>'+
-      '      <input type="radio" name="lastsort" id="%id.lastsortdown" value="down"><span style="font-size:x-small;color:#FFF;">%loc!Down!</span>'+
-      '     </td>'+
-      '    </tr></table>'+
-      '   </td>'+
-      '  </tr></table>'+
-      ' </div>',
-      onclick: SocialCalc.SpreadsheetControlSortOnclick});
-   this.editor.SettingsCallbacks.sort = {save: SocialCalc.SpreadsheetControlSortSave, load: SocialCalc.SpreadsheetControlSortLoad};
+   // this.tabnums.sort = this.tabs.length;
+   // this.tabs.push({name: "sort", text: "Sort", html:
+   //    ' <div id="%id.sorttools" style="display:none;">'+
+   //    '  <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '   <td style="vertical-align:top;padding-right:4px;width:160px;">'+
+   //    '    <div style="%tbt.">%loc!Set Cells To Sort!</div>'+
+   //    '    <select id="%id.sortlist" size="1" onfocus="%s.CmdGotFocus(this);"><option selected>[select range]</option></select>'+
+   //    '    <input type="button" value="%loc!OK!" onclick="%s.DoCmd(this, \'ok-setsort\');" style="font-size:x-small;">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:middle;padding-right:16px;width:100px;text-align:right;">'+
+   //    '    <div style="%tbt.">&nbsp;</div>'+
+   //    '    <input type="button" id="%id.sortbutton" value="%loc!Sort Cells! A1:A1" onclick="%s.DoCmd(this, \'dosort\');" style="visibility:hidden;">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:16px;">'+
+   //    '    <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '     <td style="vertical-align:top;">'+
+   //    '      <div style="%tbt.">%loc!Major Sort!</div>'+
+   //    '      <select id="%id.majorsort" size="1" onfocus="%s.CmdGotFocus(this);"></select>'+
+   //    '     </td><td>'+
+   //    '      <input type="radio" name="majorsort" id="%id.majorsortup" value="up" checked><span style="font-size:x-small;color:#FFF;">%loc!Up!</span><br>'+
+   //    '      <input type="radio" name="majorsort" id="%id.majorsortdown" value="down"><span style="font-size:x-small;color:#FFF;">%loc!Down!</span>'+
+   //    '     </td>'+
+   //    '    </tr></table>'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:16px;">'+
+   //    '    <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '     <td style="vertical-align:top;">'+
+   //    '      <div style="%tbt.">%loc!Minor Sort!</div>'+
+   //    '      <select id="%id.minorsort" size="1" onfocus="%s.CmdGotFocus(this);"></select>'+
+   //    '     </td><td>'+
+   //    '      <input type="radio" name="minorsort" id="%id.minorsortup" value="up" checked><span style="font-size:x-small;color:#FFF;">%loc!Up!</span><br>'+
+   //    '      <input type="radio" name="minorsort" id="%id.minorsortdown" value="down"><span style="font-size:x-small;color:#FFF;">%loc!Down!</span>'+
+   //    '     </td>'+
+   //    '    </tr></table>'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:16px;">'+
+   //    '    <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '     <td style="vertical-align:top;">'+
+   //    '      <div style="%tbt.">%loc!Last Sort!</div>'+
+   //    '      <select id="%id.lastsort" size="1" onfocus="%s.CmdGotFocus(this);"></select>'+
+   //    '     </td><td>'+
+   //    '      <input type="radio" name="lastsort" id="%id.lastsortup" value="up" checked><span style="font-size:x-small;color:#FFF;">%loc!Up!</span><br>'+
+   //    '      <input type="radio" name="lastsort" id="%id.lastsortdown" value="down"><span style="font-size:x-small;color:#FFF;">%loc!Down!</span>'+
+   //    '     </td>'+
+   //    '    </tr></table>'+
+   //    '   </td>'+
+   //    '  </tr></table>'+
+   //    ' </div>',
+   //    onclick: SocialCalc.SpreadsheetControlSortOnclick});
+   // this.editor.SettingsCallbacks.sort = {save: SocialCalc.SpreadsheetControlSortSave, load: SocialCalc.SpreadsheetControlSortLoad};
 
-   // Audit
-
-   this.tabnums.audit = this.tabs.length;
-   this.tabs.push({name: "audit", text: "Audit", html:
-      '<div id="%id.audittools" style="display:none;">'+
-      ' <div style="%tbt.">&nbsp;</div>'+
-      '</div>',
-      view: "audit",
-      onclick:
-         function(s, t) {
-            var SCLoc = SocialCalc.LocalizeString;
-            var i, j;
-            var str = '<table cellspacing="0" cellpadding="0" style="margin-bottom:10px;"><tr><td style="font-size:small;padding:6px;"><b>'+SCLoc("Audit Trail This Session")+':</b><br><br>';
-            var stack = s.sheet.changes.stack;
-            var tos = s.sheet.changes.tos;
-            for (i=0; i<stack.length; i++) {
-               if (i==tos+1) str += '<br></td></tr><tr><td style="font-size:small;background-color:#EEE;padding:6px;">'+SCLoc("UNDONE STEPS")+':<br>';
-               for (j=0; j<stack[i].command.length; j++) {
-                  str += SocialCalc.special_chars(stack[i].command[j]) + "<br>";
-                  }
-               }
-            s.views.audit.element.innerHTML = str+"</td></tr></table>";
-            SocialCalc.CmdGotFocus(true);
-            },
-      onclickFocus: true
-         });
-
-   this.views["audit"] = {name: "audit",
-      divStyle: "border:1px solid black;overflow:auto;",
-      html: 'Audit Trail'
-      };
-
-   // Comment
-
-   this.tabnums.comment = this.tabs.length;
-   this.tabs.push({name: "comment", text: "Comment", html:
-      '<div id="%id.commenttools" style="display:none;">'+
-      '<table cellspacing="0" cellpadding="0"><tr><td>'+
-      '<textarea id="%id.commenttext" style="font-size:small;height:32px;width:600px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'+
-      '</td><td style="vertical-align:top;">'+
-      '&nbsp;<input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlCommentSet();" style="font-size:x-small;">'+
-      '</td></tr></table>'+
-      '</div>',
-      view: "sheet",
-      onclick: SocialCalc.SpreadsheetControlCommentOnclick,
-      onunclick: SocialCalc.SpreadsheetControlCommentOnunclick
-      });
-
-   // Names
-
-   this.tabnums.names = this.tabs.length;
-   this.tabs.push({name: "names", text: "Names", html:
-      '<div id="%id.namestools" style="display:none;">'+
-      '  <table cellspacing="0" cellpadding="0"><tr>'+
-      '   <td style="vertical-align:top;padding-right:24px;">'+
-      '    <div style="%tbt.">%loc!Existing Names!</div>'+
-      '    <select id="%id.nameslist" size="1" onchange="%s.SpreadsheetControlNamesChangedName();" onfocus="%s.CmdGotFocus(this);"><option selected>[New]</option></select>'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">%loc!Name!</div>'+
-      '    <input type="text" id="%id.namesname" style="font-size:x-small;width:75px;" onfocus="%s.CmdGotFocus(this);">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">%loc!Description!</div>'+
-      '    <input type="text" id="%id.namesdesc" style="font-size:x-small;width:150px;" onfocus="%s.CmdGotFocus(this);">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">%loc!Value!</div>'+
-      '    <input type="text" id="%id.namesvalue" width="16" style="font-size:x-small;width:100px;" onfocus="%s.CmdGotFocus(this);">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:12px;width:100px;">'+
-      '    <div style="%tbt.">%loc!Set Value To!</div>'+
-      '    <input type="button" id="%id.namesrangeproposal" value="A1" onclick="%s.SpreadsheetControlNamesSetValue();" style="font-size:x-small;">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">&nbsp;</div>'+
-      '    <input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlNamesSave();" style="font-size:x-small;">'+
-      '    <input type="button" value="%loc!Delete!" onclick="%s.SpreadsheetControlNamesDelete()" style="font-size:x-small;">'+
-      '   </td>'+
-      '  </tr></table>'+
-      '</div>',
-      view: "sheet",
-      onclick: SocialCalc.SpreadsheetControlNamesOnclick,
-      onunclick: SocialCalc.SpreadsheetControlNamesOnunclick
-      });
-
-   // Clipboard
-
-   this.tabnums.clipboard = this.tabs.length;
-   this.tabs.push({name: "clipboard", text: "Clipboard", html:
-      '<div id="%id.clipboardtools" style="display:none;">'+
-      '  <table cellspacing="0" cellpadding="0"><tr>'+
-      '   <td style="vertical-align:top;padding-right:24px;">'+
-      '    <div style="%tbt.">'+
-      '     &nbsp;'+
-      '    </div>'+
-      '   </td>'+
-      '  </tr></table>'+
-      '</div>',
-      view: "clipboard",
-      onclick: SocialCalc.SpreadsheetControlClipboardOnclick,
-      onclickFocus: "clipboardtext"
-      });
-
-   this.views["clipboard"] = {name: "clipboard", divStyle: "overflow:auto;", html:
-      ' <div style="font-size:x-small;padding:5px 0px 10px 0px;">'+
-      '  <b>%loc!Display Clipboard in!:</b>'+
-      '  <input type="radio" id="%id.clipboardformat-tab" name="%id.clipboardformat" checked onclick="%s.SpreadsheetControlClipboardFormat(\'tab\');"> %loc!Tab-delimited format! &nbsp;'+
-      '  <input type="radio" id="%id.clipboardformat-csv" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'csv\');"> %loc!CSV format! &nbsp;'+
-      '  <input type="radio" id="%id.clipboardformat-scsave" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'scsave\');"> %loc!SocialCalc-save format!'+
-      ' </div>'+
-      ' <input type="button" value="%loc!Load SocialCalc Clipboard With This!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardLoad();">&nbsp; '+
-      ' <input type="button" value="%loc!Clear SocialCalc Clipboard!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardClear();">&nbsp; '+
-      ' <br>'+
-      ' <textarea id="%id.clipboardtext" style="font-size:small;height:350px;width:800px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'
-      };
-
-   return;
-
+   // // Audit
+   //
+   // this.tabnums.audit = this.tabs.length;
+   // this.tabs.push({name: "audit", text: "Audit", html:
+   //    '<div id="%id.audittools" style="display:none;">'+
+   //    ' <div style="%tbt.">&nbsp;</div>'+
+   //    '</div>',
+   //    view: "audit",
+   //    onclick:
+   //       function(s, t) {
+   //          var SCLoc = SocialCalc.LocalizeString;
+   //          var i, j;
+   //          var str = '<table cellspacing="0" cellpadding="0" style="margin-bottom:10px;"><tr><td style="font-size:small;padding:6px;"><b>'+SCLoc("Audit Trail This Session")+':</b><br><br>';
+   //          var stack = s.sheet.changes.stack;
+   //          var tos = s.sheet.changes.tos;
+   //          for (i=0; i<stack.length; i++) {
+   //             if (i==tos+1) str += '<br></td></tr><tr><td style="font-size:small;background-color:#EEE;padding:6px;">'+SCLoc("UNDONE STEPS")+':<br>';
+   //             for (j=0; j<stack[i].command.length; j++) {
+   //                str += SocialCalc.special_chars(stack[i].command[j]) + "<br>";
+   //                }
+   //             }
+   //          s.views.audit.element.innerHTML = str+"</td></tr></table>";
+   //          SocialCalc.CmdGotFocus(true);
+   //          },
+   //    onclickFocus: true
+   //       });
+   //
+   // this.views["audit"] = {name: "audit",
+   //    divStyle: "border:1px solid black;overflow:auto;",
+   //    html: 'Audit Trail'
+   //    };
+   //
+   // // Comment
+   //
+   // this.tabnums.comment = this.tabs.length;
+   // this.tabs.push({name: "comment", text: "Comment", html:
+   //    '<div id="%id.commenttools" style="display:none;">'+
+   //    '<table cellspacing="0" cellpadding="0"><tr><td>'+
+   //    '<textarea id="%id.commenttext" style="font-size:small;height:32px;width:600px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'+
+   //    '</td><td style="vertical-align:top;">'+
+   //    '&nbsp;<input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlCommentSet();" style="font-size:x-small;">'+
+   //    '</td></tr></table>'+
+   //    '</div>',
+   //    view: "sheet",
+   //    onclick: SocialCalc.SpreadsheetControlCommentOnclick,
+   //    onunclick: SocialCalc.SpreadsheetControlCommentOnunclick
+   //    });
+   //
+   // // Names
+   //
+   // this.tabnums.names = this.tabs.length;
+   // this.tabs.push({name: "names", text: "Names", html:
+   //    '<div id="%id.namestools" style="display:none;">'+
+   //    '  <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '   <td style="vertical-align:top;padding-right:24px;">'+
+   //    '    <div style="%tbt.">%loc!Existing Names!</div>'+
+   //    '    <select id="%id.nameslist" size="1" onchange="%s.SpreadsheetControlNamesChangedName();" onfocus="%s.CmdGotFocus(this);"><option selected>[New]</option></select>'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">%loc!Name!</div>'+
+   //    '    <input type="text" id="%id.namesname" style="font-size:x-small;width:75px;" onfocus="%s.CmdGotFocus(this);">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">%loc!Description!</div>'+
+   //    '    <input type="text" id="%id.namesdesc" style="font-size:x-small;width:150px;" onfocus="%s.CmdGotFocus(this);">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">%loc!Value!</div>'+
+   //    '    <input type="text" id="%id.namesvalue" width="16" style="font-size:x-small;width:100px;" onfocus="%s.CmdGotFocus(this);">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:12px;width:100px;">'+
+   //    '    <div style="%tbt.">%loc!Set Value To!</div>'+
+   //    '    <input type="button" id="%id.namesrangeproposal" value="A1" onclick="%s.SpreadsheetControlNamesSetValue();" style="font-size:x-small;">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">&nbsp;</div>'+
+   //    '    <input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlNamesSave();" style="font-size:x-small;">'+
+   //    '    <input type="button" value="%loc!Delete!" onclick="%s.SpreadsheetControlNamesDelete()" style="font-size:x-small;">'+
+   //    '   </td>'+
+   //    '  </tr></table>'+
+   //    '</div>',
+   //    view: "sheet",
+   //    onclick: SocialCalc.SpreadsheetControlNamesOnclick,
+   //    onunclick: SocialCalc.SpreadsheetControlNamesOnunclick
+   //    });
+   //
+   // // Clipboard
+   //
+   // this.tabnums.clipboard = this.tabs.length;
+   // this.tabs.push({name: "clipboard", text: "Clipboard", html:
+   //    '<div id="%id.clipboardtools" style="display:none;">'+
+   //    '  <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '   <td style="vertical-align:top;padding-right:24px;">'+
+   //    '    <div style="%tbt.">'+
+   //    '     &nbsp;'+
+   //    '    </div>'+
+   //    '   </td>'+
+   //    '  </tr></table>'+
+   //    '</div>',
+   //    view: "clipboard",
+   //    onclick: SocialCalc.SpreadsheetControlClipboardOnclick,
+   //    onclickFocus: "clipboardtext"
+   //    });
+   //
+   // this.views["clipboard"] = {name: "clipboard", divStyle: "overflow:auto;", html:
+   //    ' <div style="font-size:x-small;padding:5px 0px 10px 0px;">'+
+   //    '  <b>%loc!Display Clipboard in!:</b>'+
+   //    '  <input type="radio" id="%id.clipboardformat-tab" name="%id.clipboardformat" checked onclick="%s.SpreadsheetControlClipboardFormat(\'tab\');"> %loc!Tab-delimited format! &nbsp;'+
+   //    '  <input type="radio" id="%id.clipboardformat-csv" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'csv\');"> %loc!CSV format! &nbsp;'+
+   //    '  <input type="radio" id="%id.clipboardformat-scsave" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'scsave\');"> %loc!SocialCalc-save format!'+
+   //    ' </div>'+
+   //    ' <input type="button" value="%loc!Load SocialCalc Clipboard With This!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardLoad();">&nbsp; '+
+   //    ' <input type="button" value="%loc!Clear SocialCalc Clipboard!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardClear();">&nbsp; '+
+   //    ' <br>'+
+   //    ' <textarea id="%id.clipboardtext" style="font-size:small;height:350px;width:800px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'
+   //    };
+   //
+   // return;
+   //
    }
 
 // Methods:
@@ -1366,75 +1367,79 @@ SocialCalc.SpreadsheetControlStatuslineCallback = function(editor, status, arg, 
 //
 // Updates sort range proposed in the UI in element idPrefix+sortlist
 //
-
-SocialCalc.UpdateSortRangeProposal = function(editor) {
-
-   var ele = document.getElementById(SocialCalc.GetSpreadsheetControlObject().idPrefix+"sortlist");
-   if (editor.range.hasrange) {
-      ele.options[0].text = SocialCalc.crToCoord(editor.range.left, editor.range.top) + ":" +
-                            SocialCalc.crToCoord(editor.range.right, editor.range.bottom);
-      }
-   else {
-      ele.options[0].text = SocialCalc.LocalizeString("[select range]");
-      }
-
-   }
+/**
+ * 需要排序的单元格范围
+ * */
+// SocialCalc.UpdateSortRangeProposal = function(editor) {
+//
+//    var ele = document.getElementById(SocialCalc.GetSpreadsheetControlObject().idPrefix+"sortlist");
+//    if (editor.range.hasrange) {
+//       ele.options[0].text = SocialCalc.crToCoord(editor.range.left, editor.range.top) + ":" +
+//                             SocialCalc.crToCoord(editor.range.right, editor.range.bottom);
+//       }
+//    else {
+//       ele.options[0].text = SocialCalc.LocalizeString("[select range]");
+//       }
+//
+//    }
 
 //
 // SocialCalc.LoadColumnChoosers(spreadsheet)
 //
 // Updates list of columns for choosing which to sort for Major, Minor, and Last sort
 //
-
-SocialCalc.LoadColumnChoosers = function(spreadsheet) {
-
-   var SCLoc = SocialCalc.LocalizeString;
-
-   var sortrange, nrange, rparts, col, colname, sele, oldindex;
-
-   if (spreadsheet.sortrange && spreadsheet.sortrange.indexOf(":")==-1) { // sortrange is a named range
-      nrange = SocialCalc.Formula.LookupName(spreadsheet.sheet, spreadsheet.sortrange || "");
-      if (nrange.type == "range") {
-         rparts = nrange.value.match(/^(.*)\|(.*)\|$/);
-         sortrange = rparts[1] + ":" + rparts[2];
-         }
-      else {
-         sortrange = "A1:A1";
-         }
-      }
-   else {
-      sortrange = spreadsheet.sortrange;
-      }
-   var range = SocialCalc.ParseRange(sortrange);
-   sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
-   oldindex = sele.selectedIndex;
-   sele.options.length = 0;
-   sele.options[sele.options.length] = new Option(SCLoc("[None]"), "");
-   for (var col=range.cr1.col; col<=range.cr2.col; col++) {
-      colname = SocialCalc.rcColname(col);
-      sele.options[sele.options.length] = new Option(SCLoc("Column ")+colname, colname);
-      }
-   sele.selectedIndex = oldindex > 1 && oldindex <= (range.cr2.col-range.cr1.col+1) ? oldindex : 1; // restore what was there if reasonable
-   sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
-   oldindex = sele.selectedIndex;
-   sele.options.length = 0;
-   sele.options[sele.options.length] = new Option(SCLoc("[None]"), "");
-   for (var col=range.cr1.col; col<=range.cr2.col; col++) {
-      colname = SocialCalc.rcColname(col);
-      sele.options[sele.options.length] = new Option(colname, colname);
-      }
-   sele.selectedIndex = oldindex > 0 && oldindex <= (range.cr2.col-range.cr1.col+1) ? oldindex : 0; // default to [none]
-   sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
-   oldindex = sele.selectedIndex;
-   sele.options.length = 0;
-   sele.options[sele.options.length] = new Option(SCLoc("[None]"), "");
-   for (var col=range.cr1.col; col<=range.cr2.col; col++) {
-      colname = SocialCalc.rcColname(col);
-      sele.options[sele.options.length] = new Option(colname, colname);
-      }
-   sele.selectedIndex = oldindex > 0 && oldindex <= (range.cr2.col-range.cr1.col+1) ? oldindex : 0; // default to [none]
-
-   }
+/**
+ * 排序的字典次序
+ * */
+// SocialCalc.LoadColumnChoosers = function(spreadsheet) {
+//
+//    var SCLoc = SocialCalc.LocalizeString;
+//
+//    var sortrange, nrange, rparts, col, colname, sele, oldindex;
+//
+//    if (spreadsheet.sortrange && spreadsheet.sortrange.indexOf(":")==-1) { // sortrange is a named range
+//       nrange = SocialCalc.Formula.LookupName(spreadsheet.sheet, spreadsheet.sortrange || "");
+//       if (nrange.type == "range") {
+//          rparts = nrange.value.match(/^(.*)\|(.*)\|$/);
+//          sortrange = rparts[1] + ":" + rparts[2];
+//          }
+//       else {
+//          sortrange = "A1:A1";
+//          }
+//       }
+//    else {
+//       sortrange = spreadsheet.sortrange;
+//       }
+//    var range = SocialCalc.ParseRange(sortrange);
+//    sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
+//    oldindex = sele.selectedIndex;
+//    sele.options.length = 0;
+//    sele.options[sele.options.length] = new Option(SCLoc("[None]"), "");
+//    for (var col=range.cr1.col; col<=range.cr2.col; col++) {
+//       colname = SocialCalc.rcColname(col);
+//       sele.options[sele.options.length] = new Option(SCLoc("Column ")+colname, colname);
+//       }
+//    sele.selectedIndex = oldindex > 1 && oldindex <= (range.cr2.col-range.cr1.col+1) ? oldindex : 1; // restore what was there if reasonable
+//    sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
+//    oldindex = sele.selectedIndex;
+//    sele.options.length = 0;
+//    sele.options[sele.options.length] = new Option(SCLoc("[None]"), "");
+//    for (var col=range.cr1.col; col<=range.cr2.col; col++) {
+//       colname = SocialCalc.rcColname(col);
+//       sele.options[sele.options.length] = new Option(colname, colname);
+//       }
+//    sele.selectedIndex = oldindex > 0 && oldindex <= (range.cr2.col-range.cr1.col+1) ? oldindex : 0; // default to [none]
+//    sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
+//    oldindex = sele.selectedIndex;
+//    sele.options.length = 0;
+//    sele.options[sele.options.length] = new Option(SCLoc("[None]"), "");
+//    for (var col=range.cr1.col; col<=range.cr2.col; col++) {
+//       colname = SocialCalc.rcColname(col);
+//       sele.options[sele.options.length] = new Option(colname, colname);
+//       }
+//    sele.selectedIndex = oldindex > 0 && oldindex <= (range.cr2.col-range.cr1.col+1) ? oldindex : 0; // default to [none]
+//
+//    }
 
 //
 // SocialCalc.CmdGotFocus(obj)
@@ -1513,56 +1518,60 @@ SocialCalc.DoCmd = function(obj, which) {
          sstr = slistele[slistele.selectedIndex].value;
          SocialCalc.SpreadsheetControlExecuteCommand(obj, combostr, sstr);
          break;
-
-      case "ok-setsort":
-         lele = document.getElementById(spreadsheet.idPrefix+"sortlist");
-         if (lele.selectedIndex==0) {
-            if (editor.range.hasrange) {
-               spreadsheet.sortrange = SocialCalc.crToCoord(editor.range.left, editor.range.top) + ":" +
-                          SocialCalc.crToCoord(editor.range.right, editor.range.bottom);
-               }
-            else {
-               spreadsheet.sortrange = editor.ecell.coord+":"+editor.ecell.coord;
-               }
-            }
-         else {
-            spreadsheet.sortrange = lele.options[lele.selectedIndex].value;
-            }
-         ele = document.getElementById(spreadsheet.idPrefix+"sortbutton");
-         ele.value = SocialCalc.LocalizeString("Sort ")+spreadsheet.sortrange;
-         ele.style.visibility = "visible";
-         SocialCalc.LoadColumnChoosers(spreadsheet);
-         if (obj && obj.blur) obj.blur();
-         SocialCalc.KeyboardFocus();   
-         return;
-
-      case "dosort":
-         if (spreadsheet.sortrange && spreadsheet.sortrange.indexOf(":")==-1) { // sortrange is a named range
-            nrange = SocialCalc.Formula.LookupName(spreadsheet.sheet, spreadsheet.sortrange || "");
-            if (nrange.type != "range") return;
-            rparts = nrange.value.match(/^(.*)\|(.*)\|$/);
-            sortrange = rparts[1] + ":" + rparts[2];
-            }
-         else {
-            sortrange = spreadsheet.sortrange;
-            }
-         if (sortrange == "A1:A1") return;
-         str = "sort "+sortrange+" ";
-         sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
-         rele = document.getElementById(spreadsheet.idPrefix+"majorsortup");
-         str += sele.options[sele.selectedIndex].value + (rele.checked ? " up" : " down");
-         sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
-         if (sele.selectedIndex>0) {
-           rele = document.getElementById(spreadsheet.idPrefix+"minorsortup");
-           str += " "+sele.options[sele.selectedIndex].value + (rele.checked ? " up" : " down");
-           }
-         sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
-         if (sele.selectedIndex>0) {
-           rele = document.getElementById(spreadsheet.idPrefix+"lastsortup");
-           str += " "+sele.options[sele.selectedIndex].value + (rele.checked ? " up" : " down");
-           }
-         spreadsheet.ExecuteCommand(str, "");
-         break;
+/**
+ * 设置排序范围
+ * */
+      // case "ok-setsort":
+      //    lele = document.getElementById(spreadsheet.idPrefix+"sortlist");
+      //    if (lele.selectedIndex==0) {
+      //       if (editor.range.hasrange) {
+      //          spreadsheet.sortrange = SocialCalc.crToCoord(editor.range.left, editor.range.top) + ":" +
+      //                     SocialCalc.crToCoord(editor.range.right, editor.range.bottom);
+      //          }
+      //       else {
+      //          spreadsheet.sortrange = editor.ecell.coord+":"+editor.ecell.coord;
+      //          }
+      //       }
+      //    else {
+      //       spreadsheet.sortrange = lele.options[lele.selectedIndex].value;
+      //       }
+      //    ele = document.getElementById(spreadsheet.idPrefix+"sortbutton");
+      //    ele.value = SocialCalc.LocalizeString("Sort ")+spreadsheet.sortrange;
+      //    ele.style.visibility = "visible";
+      //    SocialCalc.LoadColumnChoosers(spreadsheet);
+      //    if (obj && obj.blur) obj.blur();
+      //    SocialCalc.KeyboardFocus();
+      //    return;
+/**
+ * 排序方法
+ * */
+      // case "dosort":
+      //    if (spreadsheet.sortrange && spreadsheet.sortrange.indexOf(":")==-1) { // sortrange is a named range
+      //       nrange = SocialCalc.Formula.LookupName(spreadsheet.sheet, spreadsheet.sortrange || "");
+      //       if (nrange.type != "range") return;
+      //       rparts = nrange.value.match(/^(.*)\|(.*)\|$/);
+      //       sortrange = rparts[1] + ":" + rparts[2];
+      //       }
+      //    else {
+      //       sortrange = spreadsheet.sortrange;
+      //       }
+      //    if (sortrange == "A1:A1") return;
+      //    str = "sort "+sortrange+" ";
+      //    sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
+      //    rele = document.getElementById(spreadsheet.idPrefix+"majorsortup");
+      //    str += sele.options[sele.selectedIndex].value + (rele.checked ? " up" : " down");
+      //    sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
+      //    if (sele.selectedIndex>0) {
+      //      rele = document.getElementById(spreadsheet.idPrefix+"minorsortup");
+      //      str += " "+sele.options[sele.selectedIndex].value + (rele.checked ? " up" : " down");
+      //      }
+      //    sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
+      //    if (sele.selectedIndex>0) {
+      //      rele = document.getElementById(spreadsheet.idPrefix+"lastsortup");
+      //      str += " "+sele.options[sele.selectedIndex].value + (rele.checked ? " up" : " down");
+      //      }
+      //    spreadsheet.ExecuteCommand(str, "");
+      //    break;
 
       case "merge":
          combostr = SocialCalc.SpreadsheetCmdLookup[which] || "";
@@ -2581,109 +2590,115 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 //
 
 // Sort
-
-SocialCalc.SpreadsheetControlSortOnclick = function(s, t) {
-
-   var name, i;
-   var namelist = [];
-   var nl = document.getElementById(s.idPrefix+"sortlist");
-   SocialCalc.LoadColumnChoosers(s);
-   s.editor.RangeChangeCallback.sort = SocialCalc.UpdateSortRangeProposal;
-
-   for (name in s.sheet.names) {
-      namelist.push(name);
-      }
-   namelist.sort();
-   nl.length = 0;
-   nl.options[0] = new Option(SocialCalc.LocalizeString("[select range]"));
-   for (i=0; i<namelist.length; i++) {
-      name = namelist[i];
-      nl.options[i+1] = new Option(name, name);
-      if (name == s.sortrange) {
-         nl.options[i+1].selected = true;
-         }
-      }
-   if (s.sortrange == "") {
-      nl.options[0].selected = true;
-      }
-
-   SocialCalc.UpdateSortRangeProposal(s.editor);
-   SocialCalc.KeyboardFocus();
-   return;
-
-   }
-
-SocialCalc.SpreadsheetControlSortSave = function(editor, setting) {
-   // Format is:
-   //    sort:sortrange:major:up/down:minor:up/down:last:up/down
-
-   var spreadsheet = SocialCalc.GetSpreadsheetControlObject();
-   var str, sele, rele;
-
-   str = "sort:"+SocialCalc.encodeForSave(spreadsheet.sortrange)+":";
-   sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
-   rele = document.getElementById(spreadsheet.idPrefix+"majorsortup");
-   str += sele.selectedIndex + (rele.checked ? ":up" : ":down");
-   sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
-   if (sele.selectedIndex>0) {
-      rele = document.getElementById(spreadsheet.idPrefix+"minorsortup");
-      str += ":"+sele.selectedIndex + (rele.checked ? ":up" : ":down");
-      }
-   else {
-      str += "::";
-      }
-   sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
-   if (sele.selectedIndex>0) {
-      rele = document.getElementById(spreadsheet.idPrefix+"lastsortup");
-      str += ":"+sele.selectedIndex + (rele.checked ? ":up" : ":down");
-      }
-    else {
-      str += "::";
-      }
-   return str+"\n";
-   }
-
-SocialCalc.SpreadsheetControlSortLoad = function(editor, setting, line, flags) {
-   var parts, ele;
-
-   var spreadsheet = SocialCalc.GetSpreadsheetControlObject();
-
-   parts = line.split(":");
-   spreadsheet.sortrange = SocialCalc.decodeFromSave(parts[1]);
-   ele = document.getElementById(spreadsheet.idPrefix+"sortbutton");
-   if (spreadsheet.sortrange) {
-      ele.value = SocialCalc.LocalizeString("Sort ")+spreadsheet.sortrange;
-      ele.style.visibility = "visible";
-      }
-   else {
-      ele.style.visibility = "hidden";
-      }
-   SocialCalc.LoadColumnChoosers(spreadsheet);
-
-   sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
-   sele.selectedIndex = parts[2]-0;
-   document.getElementById(spreadsheet.idPrefix+"majorsort"+parts[3]).checked = true;
-   sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
-   if (parts[4]) {
-      sele.selectedIndex = parts[4]-0;
-      document.getElementById(spreadsheet.idPrefix+"minorsort"+parts[5]).checked = true;
-      }
-   else {
-      sele.selectedIndex = 0;
-      document.getElementById(spreadsheet.idPrefix+"minorsortup").checked = true;
-      }
-   sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
-   if (parts[6]) {
-      sele.selectedIndex = parts[6]-0;
-      document.getElementById(spreadsheet.idPrefix+"lastsort"+parts[7]).checked = true;
-      }
-    else {
-      sele.selectedIndex = 0;
-      document.getElementById(spreadsheet.idPrefix+"lastsortup").checked = true;
-      }
-
-   return true;
-   }
+/**
+ * 表格排序的方法
+ * */
+// SocialCalc.SpreadsheetControlSortOnclick = function(s, t) {
+//
+//    var name, i;
+//    var namelist = [];
+//    var nl = document.getElementById(s.idPrefix+"sortlist");
+//    SocialCalc.LoadColumnChoosers(s);
+//    s.editor.RangeChangeCallback.sort = SocialCalc.UpdateSortRangeProposal;
+//
+//    for (name in s.sheet.names) {
+//       namelist.push(name);
+//       }
+//    namelist.sort();
+//    nl.length = 0;
+//    nl.options[0] = new Option(SocialCalc.LocalizeString("[select range]"));
+//    for (i=0; i<namelist.length; i++) {
+//       name = namelist[i];
+//       nl.options[i+1] = new Option(name, name);
+//       if (name == s.sortrange) {
+//          nl.options[i+1].selected = true;
+//          }
+//       }
+//    if (s.sortrange == "") {
+//       nl.options[0].selected = true;
+//       }
+//
+//    SocialCalc.UpdateSortRangeProposal(s.editor);
+//    SocialCalc.KeyboardFocus();
+//    return;
+//
+//    }
+/**
+ * 排序命令的存储格式
+ * */
+// SocialCalc.SpreadsheetControlSortSave = function(editor, setting) {
+//    // Format is:
+//    //    sort:sortrange:major:up/down:minor:up/down:last:up/down
+//
+//    var spreadsheet = SocialCalc.GetSpreadsheetControlObject();
+//    var str, sele, rele;
+//
+//    str = "sort:"+SocialCalc.encodeForSave(spreadsheet.sortrange)+":";
+//    sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
+//    rele = document.getElementById(spreadsheet.idPrefix+"majorsortup");
+//    str += sele.selectedIndex + (rele.checked ? ":up" : ":down");
+//    sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
+//    if (sele.selectedIndex>0) {
+//       rele = document.getElementById(spreadsheet.idPrefix+"minorsortup");
+//       str += ":"+sele.selectedIndex + (rele.checked ? ":up" : ":down");
+//       }
+//    else {
+//       str += "::";
+//       }
+//    sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
+//    if (sele.selectedIndex>0) {
+//       rele = document.getElementById(spreadsheet.idPrefix+"lastsortup");
+//       str += ":"+sele.selectedIndex + (rele.checked ? ":up" : ":down");
+//       }
+//     else {
+//       str += "::";
+//       }
+//    return str+"\n";
+//    }
+/**
+ * 排序命令的加载／解析
+ * */
+// SocialCalc.SpreadsheetControlSortLoad = function(editor, setting, line, flags) {
+//    var parts, ele;
+//
+//    var spreadsheet = SocialCalc.GetSpreadsheetControlObject();
+//
+//    parts = line.split(":");
+//    spreadsheet.sortrange = SocialCalc.decodeFromSave(parts[1]);
+//    ele = document.getElementById(spreadsheet.idPrefix+"sortbutton");
+//    if (spreadsheet.sortrange) {
+//       ele.value = SocialCalc.LocalizeString("Sort ")+spreadsheet.sortrange;
+//       ele.style.visibility = "visible";
+//       }
+//    else {
+//       ele.style.visibility = "hidden";
+//       }
+//    SocialCalc.LoadColumnChoosers(spreadsheet);
+//
+//    sele = document.getElementById(spreadsheet.idPrefix+"majorsort");
+//    sele.selectedIndex = parts[2]-0;
+//    document.getElementById(spreadsheet.idPrefix+"majorsort"+parts[3]).checked = true;
+//    sele = document.getElementById(spreadsheet.idPrefix+"minorsort");
+//    if (parts[4]) {
+//       sele.selectedIndex = parts[4]-0;
+//       document.getElementById(spreadsheet.idPrefix+"minorsort"+parts[5]).checked = true;
+//       }
+//    else {
+//       sele.selectedIndex = 0;
+//       document.getElementById(spreadsheet.idPrefix+"minorsortup").checked = true;
+//       }
+//    sele = document.getElementById(spreadsheet.idPrefix+"lastsort");
+//    if (parts[6]) {
+//       sele.selectedIndex = parts[6]-0;
+//       document.getElementById(spreadsheet.idPrefix+"lastsort"+parts[7]).checked = true;
+//       }
+//     else {
+//       sele.selectedIndex = 0;
+//       document.getElementById(spreadsheet.idPrefix+"lastsortup").checked = true;
+//       }
+//
+//    return true;
+//    }
 
 // Comment
 
