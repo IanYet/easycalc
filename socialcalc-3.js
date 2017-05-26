@@ -684,9 +684,12 @@ SocialCalc.CellFromStringParts = function(sheet, cell, parts, j) {
          case "mod":
             j+=1;
             break;
-         case "comment":
-            cell.comment=SocialCalc.decodeFromSave(parts[j++]);
-            break;
+            /**
+             * 注释相关代码
+             * */
+         // case "comment":
+         //    cell.comment=SocialCalc.decodeFromSave(parts[j++]);
+         //    break;
          default:
             throw SocialCalc.Constants.s_cfspUnknownCellType+" '"+t+"'";
             break;
@@ -886,7 +889,10 @@ SocialCalc.CellToString = function(sheet, cell) {
    if (cell.cssc) line += ":cssc:"+cell.cssc;
    if (cell.csss) line += ":csss:"+SocialCalc.encodeForSave(cell.csss);
    if (cell.mod) line += ":mod:"+cell.mod;
-   if (cell.comment) line += ":comment:"+SocialCalc.encodeForSave(cell.comment);
+   /**
+    * 注释相关代码
+    * */
+   // if (cell.comment) line += ":comment:"+SocialCalc.encodeForSave(cell.comment);
 
    return line;
 
@@ -4633,21 +4639,23 @@ SocialCalc.RenderCell = function(context, rownum, colnum, rowpane, colpane, noEl
 
    num=cell.bl;
    if (num) stylestr+="border-left:"+sheetobj.borderstyles[num]+";";
-
-   if (cell.comment) {
-      if (context.showGrid) {
-         if (context.commentClassName) {
-            result.className = (result.className ? result.className+" " : "") + context.commentClassName;
-            }
-         stylestr+=context.commentCSS;
-         }
-      else {
-         if (context.commentNoGridClassName) {
-            result.className = (result.className ? result.className+" " : "") + context.commentNoGridClassName;
-            }
-         stylestr+=context.commentNoGridCSS;
-         }
-      }
+/**
+ * 渲染单元格，如果有注释存在，改变样式的方法
+ * */
+   // if (cell.comment) {
+   //    if (context.showGrid) {
+   //       if (context.commentClassName) {
+   //          result.className = (result.className ? result.className+" " : "") + context.commentClassName;
+   //          }
+   //       stylestr+=context.commentCSS;
+   //       }
+   //    else {
+   //       if (context.commentNoGridClassName) {
+   //          result.className = (result.className ? result.className+" " : "") + context.commentNoGridClassName;
+   //          }
+   //       stylestr+=context.commentNoGridCSS;
+   //       }
+   //    }
 
    result.style.cssText=stylestr;
 

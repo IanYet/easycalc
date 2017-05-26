@@ -661,8 +661,11 @@ SocialCalc.SpreadsheetControl = function() {
 '<br>'
       };
 
+   /**
+    * 排序
+    * */
    // Sort
-
+   //
    // this.tabnums.sort = this.tabs.length;
    // this.tabs.push({name: "sort", text: "Sort", html:
    //    ' <div id="%id.sorttools" style="display:none;">'+
@@ -714,6 +717,9 @@ SocialCalc.SpreadsheetControl = function() {
    //    onclick: SocialCalc.SpreadsheetControlSortOnclick});
    // this.editor.SettingsCallbacks.sort = {save: SocialCalc.SpreadsheetControlSortSave, load: SocialCalc.SpreadsheetControlSortLoad};
 
+   /**
+    * audit，命令显示，无依赖
+    * */
    // // Audit
    //
    // this.tabnums.audit = this.tabs.length;
@@ -745,9 +751,11 @@ SocialCalc.SpreadsheetControl = function() {
    //    divStyle: "border:1px solid black;overflow:auto;",
    //    html: 'Audit Trail'
    //    };
-   //
-   // // Comment
-   //
+
+   // Comment
+/**
+ * 注释相关html代码
+ * */
    // this.tabnums.comment = this.tabs.length;
    // this.tabs.push({name: "comment", text: "Comment", html:
    //    '<div id="%id.commenttools" style="display:none;">'+
@@ -761,78 +769,78 @@ SocialCalc.SpreadsheetControl = function() {
    //    onclick: SocialCalc.SpreadsheetControlCommentOnclick,
    //    onunclick: SocialCalc.SpreadsheetControlCommentOnunclick
    //    });
-   //
-   // // Names
-   //
-   // this.tabnums.names = this.tabs.length;
-   // this.tabs.push({name: "names", text: "Names", html:
-   //    '<div id="%id.namestools" style="display:none;">'+
-   //    '  <table cellspacing="0" cellpadding="0"><tr>'+
-   //    '   <td style="vertical-align:top;padding-right:24px;">'+
-   //    '    <div style="%tbt.">%loc!Existing Names!</div>'+
-   //    '    <select id="%id.nameslist" size="1" onchange="%s.SpreadsheetControlNamesChangedName();" onfocus="%s.CmdGotFocus(this);"><option selected>[New]</option></select>'+
-   //    '   </td>'+
-   //    '   <td style="vertical-align:top;padding-right:6px;">'+
-   //    '    <div style="%tbt.">%loc!Name!</div>'+
-   //    '    <input type="text" id="%id.namesname" style="font-size:x-small;width:75px;" onfocus="%s.CmdGotFocus(this);">'+
-   //    '   </td>'+
-   //    '   <td style="vertical-align:top;padding-right:6px;">'+
-   //    '    <div style="%tbt.">%loc!Description!</div>'+
-   //    '    <input type="text" id="%id.namesdesc" style="font-size:x-small;width:150px;" onfocus="%s.CmdGotFocus(this);">'+
-   //    '   </td>'+
-   //    '   <td style="vertical-align:top;padding-right:6px;">'+
-   //    '    <div style="%tbt.">%loc!Value!</div>'+
-   //    '    <input type="text" id="%id.namesvalue" width="16" style="font-size:x-small;width:100px;" onfocus="%s.CmdGotFocus(this);">'+
-   //    '   </td>'+
-   //    '   <td style="vertical-align:top;padding-right:12px;width:100px;">'+
-   //    '    <div style="%tbt.">%loc!Set Value To!</div>'+
-   //    '    <input type="button" id="%id.namesrangeproposal" value="A1" onclick="%s.SpreadsheetControlNamesSetValue();" style="font-size:x-small;">'+
-   //    '   </td>'+
-   //    '   <td style="vertical-align:top;padding-right:6px;">'+
-   //    '    <div style="%tbt.">&nbsp;</div>'+
-   //    '    <input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlNamesSave();" style="font-size:x-small;">'+
-   //    '    <input type="button" value="%loc!Delete!" onclick="%s.SpreadsheetControlNamesDelete()" style="font-size:x-small;">'+
-   //    '   </td>'+
-   //    '  </tr></table>'+
-   //    '</div>',
-   //    view: "sheet",
-   //    onclick: SocialCalc.SpreadsheetControlNamesOnclick,
-   //    onunclick: SocialCalc.SpreadsheetControlNamesOnunclick
-   //    });
-   //
-   // // Clipboard
-   //
-   // this.tabnums.clipboard = this.tabs.length;
-   // this.tabs.push({name: "clipboard", text: "Clipboard", html:
-   //    '<div id="%id.clipboardtools" style="display:none;">'+
-   //    '  <table cellspacing="0" cellpadding="0"><tr>'+
-   //    '   <td style="vertical-align:top;padding-right:24px;">'+
-   //    '    <div style="%tbt.">'+
-   //    '     &nbsp;'+
-   //    '    </div>'+
-   //    '   </td>'+
-   //    '  </tr></table>'+
-   //    '</div>',
-   //    view: "clipboard",
-   //    onclick: SocialCalc.SpreadsheetControlClipboardOnclick,
-   //    onclickFocus: "clipboardtext"
-   //    });
-   //
-   // this.views["clipboard"] = {name: "clipboard", divStyle: "overflow:auto;", html:
-   //    ' <div style="font-size:x-small;padding:5px 0px 10px 0px;">'+
-   //    '  <b>%loc!Display Clipboard in!:</b>'+
-   //    '  <input type="radio" id="%id.clipboardformat-tab" name="%id.clipboardformat" checked onclick="%s.SpreadsheetControlClipboardFormat(\'tab\');"> %loc!Tab-delimited format! &nbsp;'+
-   //    '  <input type="radio" id="%id.clipboardformat-csv" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'csv\');"> %loc!CSV format! &nbsp;'+
-   //    '  <input type="radio" id="%id.clipboardformat-scsave" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'scsave\');"> %loc!SocialCalc-save format!'+
-   //    ' </div>'+
-   //    ' <input type="button" value="%loc!Load SocialCalc Clipboard With This!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardLoad();">&nbsp; '+
-   //    ' <input type="button" value="%loc!Clear SocialCalc Clipboard!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardClear();">&nbsp; '+
-   //    ' <br>'+
-   //    ' <textarea id="%id.clipboardtext" style="font-size:small;height:350px;width:800px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'
-   //    };
-   //
-   // return;
-   //
+
+   // Names
+
+   this.tabnums.names = this.tabs.length;
+   this.tabs.push({name: "names", text: "Names", html:
+      '<div id="%id.namestools" style="display:none;">'+
+      '  <table cellspacing="0" cellpadding="0"><tr>'+
+      '   <td style="vertical-align:top;padding-right:24px;">'+
+      '    <div style="%tbt.">%loc!Existing Names!</div>'+
+      '    <select id="%id.nameslist" size="1" onchange="%s.SpreadsheetControlNamesChangedName();" onfocus="%s.CmdGotFocus(this);"><option selected>[New]</option></select>'+
+      '   </td>'+
+      '   <td style="vertical-align:top;padding-right:6px;">'+
+      '    <div style="%tbt.">%loc!Name!</div>'+
+      '    <input type="text" id="%id.namesname" style="font-size:x-small;width:75px;" onfocus="%s.CmdGotFocus(this);">'+
+      '   </td>'+
+      '   <td style="vertical-align:top;padding-right:6px;">'+
+      '    <div style="%tbt.">%loc!Description!</div>'+
+      '    <input type="text" id="%id.namesdesc" style="font-size:x-small;width:150px;" onfocus="%s.CmdGotFocus(this);">'+
+      '   </td>'+
+      '   <td style="vertical-align:top;padding-right:6px;">'+
+      '    <div style="%tbt.">%loc!Value!</div>'+
+      '    <input type="text" id="%id.namesvalue" width="16" style="font-size:x-small;width:100px;" onfocus="%s.CmdGotFocus(this);">'+
+      '   </td>'+
+      '   <td style="vertical-align:top;padding-right:12px;width:100px;">'+
+      '    <div style="%tbt.">%loc!Set Value To!</div>'+
+      '    <input type="button" id="%id.namesrangeproposal" value="A1" onclick="%s.SpreadsheetControlNamesSetValue();" style="font-size:x-small;">'+
+      '   </td>'+
+      '   <td style="vertical-align:top;padding-right:6px;">'+
+      '    <div style="%tbt.">&nbsp;</div>'+
+      '    <input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlNamesSave();" style="font-size:x-small;">'+
+      '    <input type="button" value="%loc!Delete!" onclick="%s.SpreadsheetControlNamesDelete()" style="font-size:x-small;">'+
+      '   </td>'+
+      '  </tr></table>'+
+      '</div>',
+      view: "sheet",
+      onclick: SocialCalc.SpreadsheetControlNamesOnclick,
+      onunclick: SocialCalc.SpreadsheetControlNamesOnunclick
+      });
+
+   // Clipboard
+
+   this.tabnums.clipboard = this.tabs.length;
+   this.tabs.push({name: "clipboard", text: "Clipboard", html:
+      '<div id="%id.clipboardtools" style="display:none;">'+
+      '  <table cellspacing="0" cellpadding="0"><tr>'+
+      '   <td style="vertical-align:top;padding-right:24px;">'+
+      '    <div style="%tbt.">'+
+      '     &nbsp;'+
+      '    </div>'+
+      '   </td>'+
+      '  </tr></table>'+
+      '</div>',
+      view: "clipboard",
+      onclick: SocialCalc.SpreadsheetControlClipboardOnclick,
+      onclickFocus: "clipboardtext"
+      });
+
+   this.views["clipboard"] = {name: "clipboard", divStyle: "overflow:auto;", html:
+      ' <div style="font-size:x-small;padding:5px 0px 10px 0px;">'+
+      '  <b>%loc!Display Clipboard in!:</b>'+
+      '  <input type="radio" id="%id.clipboardformat-tab" name="%id.clipboardformat" checked onclick="%s.SpreadsheetControlClipboardFormat(\'tab\');"> %loc!Tab-delimited format! &nbsp;'+
+      '  <input type="radio" id="%id.clipboardformat-csv" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'csv\');"> %loc!CSV format! &nbsp;'+
+      '  <input type="radio" id="%id.clipboardformat-scsave" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'scsave\');"> %loc!SocialCalc-save format!'+
+      ' </div>'+
+      ' <input type="button" value="%loc!Load SocialCalc Clipboard With This!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardLoad();">&nbsp; '+
+      ' <input type="button" value="%loc!Clear SocialCalc Clipboard!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardClear();">&nbsp; '+
+      ' <br>'+
+      ' <textarea id="%id.clipboardtext" style="font-size:small;height:350px;width:800px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'
+      };
+
+   return;
+
    }
 
 // Methods:
@@ -2702,193 +2710,200 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 
 // Comment
 
-SocialCalc.SpreadsheetControlCommentOnclick = function(s, t) {
-   s.editor.MoveECellCallback.comment = SocialCalc.SpreadsheetControlCommentMoveECell;
-   SocialCalc.SpreadsheetControlCommentDisplay(s, t);
-   SocialCalc.KeyboardFocus();
-   return;
-   }
-
-SocialCalc.SpreadsheetControlCommentDisplay = function(s, t) {
-   var c = "";
-   if (s.editor.ecell && s.editor.ecell.coord && s.sheet.cells[s.editor.ecell.coord]) {
-      c = s.sheet.cells[s.editor.ecell.coord].comment || "";
-      }
-   document.getElementById(s.idPrefix+"commenttext").value = c;
-   }
-
-SocialCalc.SpreadsheetControlCommentMoveECell = function(editor) {
-   SocialCalc.SpreadsheetControlCommentDisplay(SocialCalc.GetSpreadsheetControlObject(), "comment");
-   }
-
-SocialCalc.SpreadsheetControlCommentSet = function() {
-   var s=SocialCalc.GetSpreadsheetControlObject();
-   s.ExecuteCommand("set %C comment "+SocialCalc.encodeForSave(document.getElementById(s.idPrefix+"commenttext").value));
-   var cell=SocialCalc.GetEditorCellElement(s.editor, s.editor.ecell.row, s.editor.ecell.col);
-   s.editor.UpdateCellCSS(cell, s.editor.ecell.row, s.editor.ecell.col);
-   SocialCalc.KeyboardFocus();
-   }
-
-SocialCalc.SpreadsheetControlCommentOnunclick = function(s, t) {
-   delete s.editor.MoveECellCallback.comment;
-   }
+/**
+ * 注释相关方法
+ * */
+// SocialCalc.SpreadsheetControlCommentOnclick = function(s, t) {
+//    s.editor.MoveECellCallback.comment = SocialCalc.SpreadsheetControlCommentMoveECell;
+//    SocialCalc.SpreadsheetControlCommentDisplay(s, t);
+//    SocialCalc.KeyboardFocus();
+//    return;
+//    }
+//
+// SocialCalc.SpreadsheetControlCommentDisplay = function(s, t) {
+//    var c = "";
+//    if (s.editor.ecell && s.editor.ecell.coord && s.sheet.cells[s.editor.ecell.coord]) {
+//       c = s.sheet.cells[s.editor.ecell.coord].comment || "";
+//       }
+//    document.getElementById(s.idPrefix+"commenttext").value = c;
+//    }
+//
+// SocialCalc.SpreadsheetControlCommentMoveECell = function(editor) {
+//    SocialCalc.SpreadsheetControlCommentDisplay(SocialCalc.GetSpreadsheetControlObject(), "comment");
+//    }
+//
+// SocialCalc.SpreadsheetControlCommentSet = function() {
+//    var s=SocialCalc.GetSpreadsheetControlObject();
+//    s.ExecuteCommand("set %C comment "+SocialCalc.encodeForSave(document.getElementById(s.idPrefix+"commenttext").value));
+//    var cell=SocialCalc.GetEditorCellElement(s.editor, s.editor.ecell.row, s.editor.ecell.col);
+//    s.editor.UpdateCellCSS(cell, s.editor.ecell.row, s.editor.ecell.col);
+//    SocialCalc.KeyboardFocus();
+//    }
+//
+// SocialCalc.SpreadsheetControlCommentOnunclick = function(s, t) {
+//    delete s.editor.MoveECellCallback.comment;
+//    }
 
 // Names
-
-SocialCalc.SpreadsheetControlNamesOnclick = function(s, t) {
-   document.getElementById(s.idPrefix+"namesname").value = "";
-   document.getElementById(s.idPrefix+"namesdesc").value = "";
-   document.getElementById(s.idPrefix+"namesvalue").value = "";
-   s.editor.RangeChangeCallback.names = SocialCalc.SpreadsheetControlNamesRangeChange;
-   s.editor.MoveECellCallback.names = SocialCalc.SpreadsheetControlNamesRangeChange;
-   SocialCalc.SpreadsheetControlNamesRangeChange(s.editor);
-   SocialCalc.SpreadsheetControlNamesFillNameList();
-   SocialCalc.SpreadsheetControlNamesChangedName();
-   }
-
-SocialCalc.SpreadsheetControlNamesFillNameList = function() {
-   var SCLoc = SocialCalc.LocalizeString;
-   var name, i;
-   var namelist = [];
-   var s=SocialCalc.GetSpreadsheetControlObject();
-   var nl = document.getElementById(s.idPrefix+"nameslist");
-   var currentname = document.getElementById(s.idPrefix+"namesname").value.toUpperCase().replace(/[^A-Z0-9_\.]/g, "");
-   for (name in s.sheet.names) {
-      namelist.push(name);
-      }
-   namelist.sort();
-   nl.length = 0;
-   if (namelist.length > 0) {
-      nl.options[0] = new Option(SCLoc("[New]"));
-      }
-   else {
-      nl.options[0] = new Option(SCLoc("[None]"));
-      }
-   for (i=0; i<namelist.length; i++) {
-      name = namelist[i];
-      nl.options[i+1] = new Option(name, name);
-      if (name == currentname) {
-         nl.options[i+1].selected = true;
-         }
-      }
-   if (currentname == "") {
-      nl.options[0].selected = true;
-      }
-   }
-
-SocialCalc.SpreadsheetControlNamesChangedName = function() {
-   var s=SocialCalc.GetSpreadsheetControlObject();
-   var nl = document.getElementById(s.idPrefix+"nameslist");
-   var name = nl.options[nl.selectedIndex].value;
-   if (s.sheet.names[name]) {
-      document.getElementById(s.idPrefix+"namesname").value = name;
-      document.getElementById(s.idPrefix+"namesdesc").value = s.sheet.names[name].desc || "";
-      document.getElementById(s.idPrefix+"namesvalue").value = s.sheet.names[name].definition || "";
-      }
-   else {
-      document.getElementById(s.idPrefix+"namesname").value = "";
-      document.getElementById(s.idPrefix+"namesdesc").value = "";
-      document.getElementById(s.idPrefix+"namesvalue").value = "";
-      }
-   }
-
-SocialCalc.SpreadsheetControlNamesRangeChange = function(editor) {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   var ele = document.getElementById(s.idPrefix+"namesrangeproposal");
-   if (editor.range.hasrange) {
-      ele.value = SocialCalc.crToCoord(editor.range.left, editor.range.top) + ":" +
-                            SocialCalc.crToCoord(editor.range.right, editor.range.bottom);
-      }
-   else {
-      ele.value = editor.ecell.coord;
-      }
-   }
-
-SocialCalc.SpreadsheetControlNamesOnunclick = function(s, t) {
-   delete s.editor.RangeChangeCallback.names;
-   delete s.editor.MoveECellCallback.names;
-   }
-
-SocialCalc.SpreadsheetControlNamesSetValue = function() {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   document.getElementById(s.idPrefix+"namesvalue").value = document.getElementById(s.idPrefix+"namesrangeproposal").value;
-   SocialCalc.KeyboardFocus();
-   }
-
-SocialCalc.SpreadsheetControlNamesSave = function() {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   var name = document.getElementById(s.idPrefix+"namesname").value;
-   SocialCalc.SetTab(s.tabs[0].name); // return to first tab
-   SocialCalc.KeyboardFocus();
-   if (name != "") {
-      s.ExecuteCommand("name define "+name+" "+document.getElementById(s.idPrefix+"namesvalue").value+"\n"+
-         "name desc "+name+" "+document.getElementById(s.idPrefix+"namesdesc").value);
-      }
-   }
-
-SocialCalc.SpreadsheetControlNamesDelete = function() {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   var name = document.getElementById(s.idPrefix+"namesname").value;
-   SocialCalc.SetTab(s.tabs[0].name); // return to first tab
-   SocialCalc.KeyboardFocus();
-   if (name != "") {
-      s.ExecuteCommand("name delete "+name);
-//      document.getElementById(s.idPrefix+"namesname").value = "";
-//      document.getElementById(s.idPrefix+"namesvalue").value = "";
-//      document.getElementById(s.idPrefix+"namesdesc").value = "";
-//      SocialCalc.SpreadsheetControlNamesFillNameList();
-      }
-   SocialCalc.KeyboardFocus();
-   }
+/**
+ * 命名相关方法
+ * */
+// SocialCalc.SpreadsheetControlNamesOnclick = function(s, t) {
+//    document.getElementById(s.idPrefix+"namesname").value = "";
+//    document.getElementById(s.idPrefix+"namesdesc").value = "";
+//    document.getElementById(s.idPrefix+"namesvalue").value = "";
+//    s.editor.RangeChangeCallback.names = SocialCalc.SpreadsheetControlNamesRangeChange;
+//    s.editor.MoveECellCallback.names = SocialCalc.SpreadsheetControlNamesRangeChange;
+//    SocialCalc.SpreadsheetControlNamesRangeChange(s.editor);
+//    SocialCalc.SpreadsheetControlNamesFillNameList();
+//    SocialCalc.SpreadsheetControlNamesChangedName();
+//    }
+//
+// SocialCalc.SpreadsheetControlNamesFillNameList = function() {
+//    var SCLoc = SocialCalc.LocalizeString;
+//    var name, i;
+//    var namelist = [];
+//    var s=SocialCalc.GetSpreadsheetControlObject();
+//    var nl = document.getElementById(s.idPrefix+"nameslist");
+//    var currentname = document.getElementById(s.idPrefix+"namesname").value.toUpperCase().replace(/[^A-Z0-9_\.]/g, "");
+//    for (name in s.sheet.names) {
+//       namelist.push(name);
+//       }
+//    namelist.sort();
+//    nl.length = 0;
+//    if (namelist.length > 0) {
+//       nl.options[0] = new Option(SCLoc("[New]"));
+//       }
+//    else {
+//       nl.options[0] = new Option(SCLoc("[None]"));
+//       }
+//    for (i=0; i<namelist.length; i++) {
+//       name = namelist[i];
+//       nl.options[i+1] = new Option(name, name);
+//       if (name == currentname) {
+//          nl.options[i+1].selected = true;
+//          }
+//       }
+//    if (currentname == "") {
+//       nl.options[0].selected = true;
+//       }
+//    }
+//
+// SocialCalc.SpreadsheetControlNamesChangedName = function() {
+//    var s=SocialCalc.GetSpreadsheetControlObject();
+//    var nl = document.getElementById(s.idPrefix+"nameslist");
+//    var name = nl.options[nl.selectedIndex].value;
+//    if (s.sheet.names[name]) {
+//       document.getElementById(s.idPrefix+"namesname").value = name;
+//       document.getElementById(s.idPrefix+"namesdesc").value = s.sheet.names[name].desc || "";
+//       document.getElementById(s.idPrefix+"namesvalue").value = s.sheet.names[name].definition || "";
+//       }
+//    else {
+//       document.getElementById(s.idPrefix+"namesname").value = "";
+//       document.getElementById(s.idPrefix+"namesdesc").value = "";
+//       document.getElementById(s.idPrefix+"namesvalue").value = "";
+//       }
+//    }
+//
+// SocialCalc.SpreadsheetControlNamesRangeChange = function(editor) {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    var ele = document.getElementById(s.idPrefix+"namesrangeproposal");
+//    if (editor.range.hasrange) {
+//       ele.value = SocialCalc.crToCoord(editor.range.left, editor.range.top) + ":" +
+//                             SocialCalc.crToCoord(editor.range.right, editor.range.bottom);
+//       }
+//    else {
+//       ele.value = editor.ecell.coord;
+//       }
+//    }
+//
+// SocialCalc.SpreadsheetControlNamesOnunclick = function(s, t) {
+//    delete s.editor.RangeChangeCallback.names;
+//    delete s.editor.MoveECellCallback.names;
+//    }
+//
+// SocialCalc.SpreadsheetControlNamesSetValue = function() {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    document.getElementById(s.idPrefix+"namesvalue").value = document.getElementById(s.idPrefix+"namesrangeproposal").value;
+//    SocialCalc.KeyboardFocus();
+//    }
+//
+// SocialCalc.SpreadsheetControlNamesSave = function() {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    var name = document.getElementById(s.idPrefix+"namesname").value;
+//    SocialCalc.SetTab(s.tabs[0].name); // return to first tab
+//    SocialCalc.KeyboardFocus();
+//    if (name != "") {
+//       s.ExecuteCommand("name define "+name+" "+document.getElementById(s.idPrefix+"namesvalue").value+"\n"+
+//          "name desc "+name+" "+document.getElementById(s.idPrefix+"namesdesc").value);
+//       }
+//    }
+//
+// SocialCalc.SpreadsheetControlNamesDelete = function() {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    var name = document.getElementById(s.idPrefix+"namesname").value;
+//    SocialCalc.SetTab(s.tabs[0].name); // return to first tab
+//    SocialCalc.KeyboardFocus();
+//    if (name != "") {
+//       s.ExecuteCommand("name delete "+name);
+// //      document.getElementById(s.idPrefix+"namesname").value = "";
+// //      document.getElementById(s.idPrefix+"namesvalue").value = "";
+// //      document.getElementById(s.idPrefix+"namesdesc").value = "";
+// //      SocialCalc.SpreadsheetControlNamesFillNameList();
+//       }
+//    SocialCalc.KeyboardFocus();
+//    }
 
 // Clipboard
-
-SocialCalc.SpreadsheetControlClipboardOnclick = function(s, t) {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   clipele = document.getElementById(s.idPrefix+"clipboardtext");
-   document.getElementById(s.idPrefix+"clipboardformat-tab").checked = true;
-   clipele.value = SocialCalc.ConvertSaveToOtherFormat(SocialCalc.Clipboard.clipboard, "tab");
-   return;
-   }
-
-SocialCalc.SpreadsheetControlClipboardFormat = function(which) {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   clipele = document.getElementById(s.idPrefix+"clipboardtext");
-   clipele.value = SocialCalc.ConvertSaveToOtherFormat(SocialCalc.Clipboard.clipboard, which);
-   }
-
-SocialCalc.SpreadsheetControlClipboardLoad = function() {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   var savetype = "tab";
-   SocialCalc.SetTab(s.tabs[0].name); // return to first tab
-   SocialCalc.KeyboardFocus();
-   if (document.getElementById(s.idPrefix+"clipboardformat-csv").checked) {
-      savetype = "csv";
-      }
-   else if (document.getElementById(s.idPrefix+"clipboardformat-scsave").checked) {
-      savetype = "scsave";
-      }
-   s.editor.EditorScheduleSheetCommands("loadclipboard "+
-      SocialCalc.encodeForSave(
-         SocialCalc.ConvertOtherFormatToSave(document.getElementById(s.idPrefix+"clipboardtext").value, savetype)), true, false);
-   }
-
-SocialCalc.SpreadsheetControlClipboardClear = function() {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   var clipele = document.getElementById(s.idPrefix+"clipboardtext");
-   clipele.value = "";
-   s.editor.EditorScheduleSheetCommands("clearclipboard", true, false);
-   clipele.focus();
-   }
-
-SocialCalc.SpreadsheetControlClipboardExport = function() {
-   var s = SocialCalc.GetSpreadsheetControlObject();
-   if (s.ExportCallback) {
-      s.ExportCallback(s);
-      }
-   SocialCalc.SetTab(s.tabs[0].name); // return to first tab
-   SocialCalc.KeyboardFocus();
-   }
+/**
+ * 剪贴板方法
+ * */
+// SocialCalc.SpreadsheetControlClipboardOnclick = function(s, t) {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    clipele = document.getElementById(s.idPrefix+"clipboardtext");
+//    document.getElementById(s.idPrefix+"clipboardformat-tab").checked = true;
+//    clipele.value = SocialCalc.ConvertSaveToOtherFormat(SocialCalc.Clipboard.clipboard, "tab");
+//    return;
+//    }
+//
+// SocialCalc.SpreadsheetControlClipboardFormat = function(which) {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    clipele = document.getElementById(s.idPrefix+"clipboardtext");
+//    clipele.value = SocialCalc.ConvertSaveToOtherFormat(SocialCalc.Clipboard.clipboard, which);
+//    }
+//
+// SocialCalc.SpreadsheetControlClipboardLoad = function() {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    var savetype = "tab";
+//    SocialCalc.SetTab(s.tabs[0].name); // return to first tab
+//    SocialCalc.KeyboardFocus();
+//    if (document.getElementById(s.idPrefix+"clipboardformat-csv").checked) {
+//       savetype = "csv";
+//       }
+//    else if (document.getElementById(s.idPrefix+"clipboardformat-scsave").checked) {
+//       savetype = "scsave";
+//       }
+//    s.editor.EditorScheduleSheetCommands("loadclipboard "+
+//       SocialCalc.encodeForSave(
+//          SocialCalc.ConvertOtherFormatToSave(document.getElementById(s.idPrefix+"clipboardtext").value, savetype)), true, false);
+//    }
+//
+// SocialCalc.SpreadsheetControlClipboardClear = function() {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    var clipele = document.getElementById(s.idPrefix+"clipboardtext");
+//    clipele.value = "";
+//    s.editor.EditorScheduleSheetCommands("clearclipboard", true, false);
+//    clipele.focus();
+//    }
+//
+// SocialCalc.SpreadsheetControlClipboardExport = function() {
+//    var s = SocialCalc.GetSpreadsheetControlObject();
+//    if (s.ExportCallback) {
+//       s.ExportCallback(s);
+//       }
+//    SocialCalc.SetTab(s.tabs[0].name); // return to first tab
+//    SocialCalc.KeyboardFocus();
+//    }
 
 // Settings
 
