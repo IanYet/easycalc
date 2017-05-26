@@ -771,73 +771,77 @@ SocialCalc.SpreadsheetControl = function() {
    //    });
 
    // Names
-
-   this.tabnums.names = this.tabs.length;
-   this.tabs.push({name: "names", text: "Names", html:
-      '<div id="%id.namestools" style="display:none;">'+
-      '  <table cellspacing="0" cellpadding="0"><tr>'+
-      '   <td style="vertical-align:top;padding-right:24px;">'+
-      '    <div style="%tbt.">%loc!Existing Names!</div>'+
-      '    <select id="%id.nameslist" size="1" onchange="%s.SpreadsheetControlNamesChangedName();" onfocus="%s.CmdGotFocus(this);"><option selected>[New]</option></select>'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">%loc!Name!</div>'+
-      '    <input type="text" id="%id.namesname" style="font-size:x-small;width:75px;" onfocus="%s.CmdGotFocus(this);">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">%loc!Description!</div>'+
-      '    <input type="text" id="%id.namesdesc" style="font-size:x-small;width:150px;" onfocus="%s.CmdGotFocus(this);">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">%loc!Value!</div>'+
-      '    <input type="text" id="%id.namesvalue" width="16" style="font-size:x-small;width:100px;" onfocus="%s.CmdGotFocus(this);">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:12px;width:100px;">'+
-      '    <div style="%tbt.">%loc!Set Value To!</div>'+
-      '    <input type="button" id="%id.namesrangeproposal" value="A1" onclick="%s.SpreadsheetControlNamesSetValue();" style="font-size:x-small;">'+
-      '   </td>'+
-      '   <td style="vertical-align:top;padding-right:6px;">'+
-      '    <div style="%tbt.">&nbsp;</div>'+
-      '    <input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlNamesSave();" style="font-size:x-small;">'+
-      '    <input type="button" value="%loc!Delete!" onclick="%s.SpreadsheetControlNamesDelete()" style="font-size:x-small;">'+
-      '   </td>'+
-      '  </tr></table>'+
-      '</div>',
-      view: "sheet",
-      onclick: SocialCalc.SpreadsheetControlNamesOnclick,
-      onunclick: SocialCalc.SpreadsheetControlNamesOnunclick
-      });
+/**
+ * 命名相关代码
+ * */
+   // this.tabnums.names = this.tabs.length;
+   // this.tabs.push({name: "names", text: "Names", html:
+   //    '<div id="%id.namestools" style="display:none;">'+
+   //    '  <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '   <td style="vertical-align:top;padding-right:24px;">'+
+   //    '    <div style="%tbt.">%loc!Existing Names!</div>'+
+   //    '    <select id="%id.nameslist" size="1" onchange="%s.SpreadsheetControlNamesChangedName();" onfocus="%s.CmdGotFocus(this);"><option selected>[New]</option></select>'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">%loc!Name!</div>'+
+   //    '    <input type="text" id="%id.namesname" style="font-size:x-small;width:75px;" onfocus="%s.CmdGotFocus(this);">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">%loc!Description!</div>'+
+   //    '    <input type="text" id="%id.namesdesc" style="font-size:x-small;width:150px;" onfocus="%s.CmdGotFocus(this);">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">%loc!Value!</div>'+
+   //    '    <input type="text" id="%id.namesvalue" width="16" style="font-size:x-small;width:100px;" onfocus="%s.CmdGotFocus(this);">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:12px;width:100px;">'+
+   //    '    <div style="%tbt.">%loc!Set Value To!</div>'+
+   //    '    <input type="button" id="%id.namesrangeproposal" value="A1" onclick="%s.SpreadsheetControlNamesSetValue();" style="font-size:x-small;">'+
+   //    '   </td>'+
+   //    '   <td style="vertical-align:top;padding-right:6px;">'+
+   //    '    <div style="%tbt.">&nbsp;</div>'+
+   //    '    <input type="button" value="%loc!Save!" onclick="%s.SpreadsheetControlNamesSave();" style="font-size:x-small;">'+
+   //    '    <input type="button" value="%loc!Delete!" onclick="%s.SpreadsheetControlNamesDelete()" style="font-size:x-small;">'+
+   //    '   </td>'+
+   //    '  </tr></table>'+
+   //    '</div>',
+   //    view: "sheet",
+   //    onclick: SocialCalc.SpreadsheetControlNamesOnclick,
+   //    onunclick: SocialCalc.SpreadsheetControlNamesOnunclick
+   //    });
 
    // Clipboard
-
-   this.tabnums.clipboard = this.tabs.length;
-   this.tabs.push({name: "clipboard", text: "Clipboard", html:
-      '<div id="%id.clipboardtools" style="display:none;">'+
-      '  <table cellspacing="0" cellpadding="0"><tr>'+
-      '   <td style="vertical-align:top;padding-right:24px;">'+
-      '    <div style="%tbt.">'+
-      '     &nbsp;'+
-      '    </div>'+
-      '   </td>'+
-      '  </tr></table>'+
-      '</div>',
-      view: "clipboard",
-      onclick: SocialCalc.SpreadsheetControlClipboardOnclick,
-      onclickFocus: "clipboardtext"
-      });
-
-   this.views["clipboard"] = {name: "clipboard", divStyle: "overflow:auto;", html:
-      ' <div style="font-size:x-small;padding:5px 0px 10px 0px;">'+
-      '  <b>%loc!Display Clipboard in!:</b>'+
-      '  <input type="radio" id="%id.clipboardformat-tab" name="%id.clipboardformat" checked onclick="%s.SpreadsheetControlClipboardFormat(\'tab\');"> %loc!Tab-delimited format! &nbsp;'+
-      '  <input type="radio" id="%id.clipboardformat-csv" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'csv\');"> %loc!CSV format! &nbsp;'+
-      '  <input type="radio" id="%id.clipboardformat-scsave" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'scsave\');"> %loc!SocialCalc-save format!'+
-      ' </div>'+
-      ' <input type="button" value="%loc!Load SocialCalc Clipboard With This!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardLoad();">&nbsp; '+
-      ' <input type="button" value="%loc!Clear SocialCalc Clipboard!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardClear();">&nbsp; '+
-      ' <br>'+
-      ' <textarea id="%id.clipboardtext" style="font-size:small;height:350px;width:800px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'
-      };
+/**
+ * 剪贴板相关代码
+ * */
+   // this.tabnums.clipboard = this.tabs.length;
+   // this.tabs.push({name: "clipboard", text: "Clipboard", html:
+   //    '<div id="%id.clipboardtools" style="display:none;">'+
+   //    '  <table cellspacing="0" cellpadding="0"><tr>'+
+   //    '   <td style="vertical-align:top;padding-right:24px;">'+
+   //    '    <div style="%tbt.">'+
+   //    '     &nbsp;'+
+   //    '    </div>'+
+   //    '   </td>'+
+   //    '  </tr></table>'+
+   //    '</div>',
+   //    view: "clipboard",
+   //    onclick: SocialCalc.SpreadsheetControlClipboardOnclick,
+   //    onclickFocus: "clipboardtext"
+   //    });
+   //
+   // this.views["clipboard"] = {name: "clipboard", divStyle: "overflow:auto;", html:
+   //    ' <div style="font-size:x-small;padding:5px 0px 10px 0px;">'+
+   //    '  <b>%loc!Display Clipboard in!:</b>'+
+   //    '  <input type="radio" id="%id.clipboardformat-tab" name="%id.clipboardformat" checked onclick="%s.SpreadsheetControlClipboardFormat(\'tab\');"> %loc!Tab-delimited format! &nbsp;'+
+   //    '  <input type="radio" id="%id.clipboardformat-csv" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'csv\');"> %loc!CSV format! &nbsp;'+
+   //    '  <input type="radio" id="%id.clipboardformat-scsave" name="%id.clipboardformat" onclick="%s.SpreadsheetControlClipboardFormat(\'scsave\');"> %loc!SocialCalc-save format!'+
+   //    ' </div>'+
+   //    ' <input type="button" value="%loc!Load SocialCalc Clipboard With This!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardLoad();">&nbsp; '+
+   //    ' <input type="button" value="%loc!Clear SocialCalc Clipboard!" style="font-size:x-small;" onclick="%s.SpreadsheetControlClipboardClear();">&nbsp; '+
+   //    ' <br>'+
+   //    ' <textarea id="%id.clipboardtext" style="font-size:small;height:350px;width:800px;overflow:auto;" onfocus="%s.CmdGotFocus(this);"></textarea>'
+   //    };
 
    return;
 
@@ -1695,173 +1699,6 @@ SocialCalc.SpreadsheetCmdSLookup = {
  'borderon': '1px solid rgb(0,0,0)',
  'borderoff': ''
  }
-
-/******* NO LONGER USED
-
-SocialCalc.SpreadsheetCmdTable = {
- cmd: [
-  {t:"Fill Right", s:"ffal", c:"fillright %C %S"},
-  {t:"Fill Down", s:"ffal", c:"filldown %C %S"},
-  {t:"Copy", s:"all", c:"copy %C %S"},
-  {t:"Cut", s:"all", c:"cut %C %S"},
-  {t:"Paste", s:"ffal", c:"paste %C %S"},
-  {t:"Erase", s:"ffal", c:"erase %C %S"},
-  {t:"Insert", s:"rowcol", c:"insert%S %C"},
-  {t:"Delete", s:"rowcol", c:"delete%S %C"},
-  {t:"Merge Cells", s:"none", c:"merge %C"},
-  {t:"Unmerge", s:"none", c:"unmerge %C"},
-  {t:"Sort", s:"sortcol", c:"sort %R %S"},
-  {t:"Cell Color", s:"colors", c:"set %C color %S"},
-  {t:"Cell Background", s:"colors", c:"set %C bgcolor %S"},
-  {t:"Cell Number Format", s:"ntvf", c:"set %C nontextvalueformat %S"},
-  {t:"Cell Font", s:"fonts", c:"set %C font %S"},
-  {t:"Cell Align", s:"cellformat", c:"set %C cellformat %S"},
-  {t:"Cell Borders", s:"borderOnOff", c:"set %C bt %S%Nset %C br %S%Nset %C bb %S%Nset %C bl %S"},
-  {t:"Column Width", s:"colWidths", c:"set %W width %S"},
-  {t:"Default Color", s:"colors", c:"set sheet defaultcolor %S"},
-  {t:"Default Background", s:"colors", c:"set sheet defaultbgcolor %S"},
-  {t:"Default Number Format", s:"ntvf", c:"set sheet defaultnontextvalueformat %S"},
-  {t:"Default Font", s:"fonts", c:"set sheet defaultfont %S"},
-  {t:"Default Text Align", s:"cellformat", c:"set sheet defaulttextformat %S"},
-  {t:"Default Number Align", s:"cellformat", c:"set sheet defaultnontextformat %S"},
-  {t:"Default Column Width", s:"colWidths", c:"set sheet defaultcolwidth %S"}
-  ],
- rowcolstuff: [
-  {t:"Insert", s:"rowcol", c:"insert%S %C"},
-  {t:"Delete", s:"rowcol", c:"delete%S %C"},
-  {t:"Paste", s:"ffal", c:"paste %C %S"},
-  {t:"Erase", s:"ffal", c:"erase %C %S"},
-  {t:"Fill Right", s:"ffal", c:"fillright %C %S"},
-  {t:"Fill Down", s:"ffal", c:"filldown %C %S"}
-  ],
- text: [
-  {t:"Cell Color", s:"colors", c:"set %C color %S"},
-  {t:"Cell Background", s:"colors", c:"set %C bgcolor %S"},
-  {t:"Cell Number Format", s:"ntvf", c:"set %C nontextvalueformat %S"},
-  {t:"Cell Text Format", s:"tvf", c:"set %C textvalueformat %S"},
-  {t:"Cell Font", s:"fonts", c:"set %C font %S"},
-  {t:"Cell Align", s:"cellformat", c:"set %C cellformat %S"},
-  {t:"Default Color", s:"colors", c:"set sheet defaultcolor %S"},
-  {t:"Default Background", s:"colors", c:"set sheet defaultbgcolor %S"},
-  {t:"Default Number Format", s:"ntvf", c:"set sheet defaultnontextvalueformat %S"},
-  {t:"Default Text Format", s:"tvf", c:"set sheet defaulttextvalueformat %S"},
-  {t:"Default Font", s:"fonts", c:"set sheet defaultfont %S"},
-  {t:"Default Text Align", s:"cellformat", c:"set sheet defaulttextformat %S"},
-  {t:"Default Number Align", s:"cellformat", c:"set sheet defaultnontextformat %S"}
-  ],
- slists: {
-  "colors": [
-   {t:"Default", s:""},
-   {t:"Black", s:"rgb(0,0,0)"},
-   {t:"Dark Gray", s:"rgb(102,102,102)"}, // #666
-   {t:"Gray", s:"rgb(204,204,204)"}, // #CCC
-   {t:"White", s:"rgb(255,255,255)"},
-   {t:"Red", s:"rgb(255,0,0)"},
-   {t:"Dark Red", s:"rgb(153,0,0)"},
-   {t:"Orange", s:"rgb(255,153,0)"},
-   {t:"Yellow", s:"rgb(255,255,0)"},
-   {t:"Light Yellow", s:"rgb(255,255,204)"},
-   {t:"Green", s:"rgb(0,255,0)"},
-   {t:"Dark Green", s:"rgb(0,153,0)"},
-   {t:"Blue", s:"rgb(0,0,255)"},
-   {t:"Dark Blue", s:"rgb(0,0,153)"},
-   {t:"Light Blue", s:"rgb(204,204,255)"}
-   ],
-  "fonts": [ // style weight size family
-   {t:"Default", s:""},
-   {t:"Bold", s:"normal bold * *"},
-   {t:"Italic", s:"italic normal * *"},
-   {t:"Small", s:"* small *"},
-   {t:"Medium", s:"* medium *"},
-   {t:"Large", s:"* large *"},
-   {t:"Bold Small", s:"normal bold small *"},
-   {t:"Bold Medium", s:"normal bold medium *"},
-   {t:"Bold Large", s:"normal bold large *"}
-   ],
-  "cellformat": [
-   {t:"Default", s:""},
-   {t:"Left", s:"left"},
-   {t:"Right", s:"right"},
-   {t:"Center", s:"center"}
-   ],
-  "borderOnOff": [
-   {t:"On", s:"1px solid rgb(0,0,0)"},
-   {t:"Off", s:""}
-   ],
-  "colWidths": [
-   {t:"Default", s:""},
-   {t:"20", s:"20"},
-   {t:"40", s:"40"},
-   {t:"60", s:"60"},
-   {t:"80", s:"80"},
-   {t:"100", s:"100"},
-   {t:"120", s:"120"},
-   {t:"140", s:"140"},
-   {t:"160", s:"160"},
-   {t:"180", s:"180"},
-   {t:"200", s:"200"},
-   {t:"220", s:"220"},
-   {t:"240", s:"240"},
-   {t:"260", s:"260"},
-   {t:"280", s:"280"},
-   {t:"300", s:"300"}
-   ],
-  "ntvf": [
-   {t:"Default", s:""},
-   {t:"1234", s:"0"},
-   {t:"1,234", s:"#,##0"},
-   {t:"1,234.5", s:"#,##0.0"},
-   {t:"1,234.56", s:"#,##0.00"},
-   {t:"1,234.567", s:"#,##0.000"},
-   {t:"1,234%", s:"#,##0%"},
-   {t:"1,234.5%", s:"#,##0.0%"},
-   {t:"(1,234)", s:"#,##0_);(#,##0)"},
-   {t:"(1,234.5)", s:"#,##0.0_);(#,##0.0)"},
-   {t:"(1,234.56)", s:"#,##0.00_);(#,##0.00)"},
-   {t:"00", s:"00"},
-   {t:"000", s:"000"},
-   {t:"0000", s:"0000"},
-   {t:"$1,234.56", s:"$#,##0.00"},
-   {t:"2006-01-04", s:"yyyy-mm-dd"},
-   {t:"01:23:45", s:"hh:mm:ss"},
-   {t:"2006-01-04 01:23:45", s:"yyyy-mm-dd hh:mm:ss"},
-   {t:"Hidden", s:"hidden"}
-   ],
-  "tvf": [
-   {t:"Default", s:""},
-   {t:"Automatic", s:"general"},
-   {t:"Plain Text", s:"text-plain"},
-   {t:"HTML", s:"text-html"},
-   {t:"Wiki", s:"text-wiki"},
-   {t:"Hidden", s:"hidden"}
-   ],
-  "ffal": [ // Formulas, Formats, All
-   {t:"All", s:"all"},
-   {t:"Contents", s:"formulas"},
-   {t:"Formats", s:"formats"}
-   ],
-  "all": [ // All
-   {t:"All", s:"all"}
-   ],
-  "rowcol": [
-   {t:"Row", s:"row"},
-   {t:"Column", s:"col"}
-   ],
-  "sortcol": [
-   {t:"A up", s:"A up"},
-   {t:"B up", s:"B up"},
-   {t:"C up", s:"C up"},
-   {t:"A down", s:"A down"},
-   {t:"B down", s:"B down"},
-   {t:"C down", s:"C down"},
-   {t:"A, B, C up", s:"A up B up C up"}
-   ],
-  "none": [ // nothing
-   {t:" ", s:" "}
-   ]
-  }
- }
-*********/
 
 //
 // SocialCalc.SpreadsheetControlExecuteCommand(obj, combostr, sstr)
