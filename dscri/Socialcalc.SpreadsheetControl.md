@@ -1,4 +1,4 @@
-# socialcalcspreadsheetcontrol.js
+# Socialcalc.SpreadsheetControl
 
 ---
 
@@ -124,4 +124,8 @@
          this.statuslineCSS = scc.SCStatuslineCSS;
       ```
 
-  - ​
+  - 初始化：
+
+  - - sheet = SocialCalc.Sheet()
+    - content = SocialCalc.RenderContext(this.sheet)
+    - editor = SocialCalc.TableEditor(this.context)
