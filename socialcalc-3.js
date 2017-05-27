@@ -277,6 +277,7 @@ SocialCalc.ResetSheet = function(sheet, reload) {
          hide: {}
       };
    /**
+    * @DELETE
     * 命名相关代码*/
    // sheet.names={}; // Each is: {desc: "optional description", definition: "B5, A1:B7, or =formula"}
    sheet.layouts=[];
@@ -687,6 +688,7 @@ SocialCalc.CellFromStringParts = function(sheet, cell, parts, j) {
             j+=1;
             break;
             /**
+             * @DELETE
              * 注释相关代码
              * */
          // case "comment":
@@ -892,6 +894,7 @@ SocialCalc.CellToString = function(sheet, cell) {
    if (cell.csss) line += ":csss:"+SocialCalc.encodeForSave(cell.csss);
    if (cell.mod) line += ":mod:"+cell.mod;
    /**
+    * @DELETE
     * 注释相关代码
     * */
    // if (cell.comment) line += ":comment:"+SocialCalc.encodeForSave(cell.comment);
@@ -4642,6 +4645,7 @@ SocialCalc.RenderCell = function(context, rownum, colnum, rowpane, colpane, noEl
    num=cell.bl;
    if (num) stylestr+="border-left:"+sheetobj.borderstyles[num]+";";
 /**
+ * @DELETE
  * 渲染单元格，如果有注释存在，改变样式的方法
  * */
    // if (cell.comment) {
@@ -5526,6 +5530,7 @@ SocialCalc.ParseCellLinkText = function(str) {
    }
 
 /**
+ * @DESCRIBE
  * 剪贴板相关代码
  *
  * csv， html，tab相互转换

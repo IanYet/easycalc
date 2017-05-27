@@ -171,8 +171,11 @@ SocialCalc.SpreadsheetControl = function() {
 
    this.spreadsheetDiv = null;
    this.editorDiv = null;
-
-   this.sortrange = ""; // remembered range for sort tab
+/**
+ * @DELETE
+ * 排序相关变量
+ * */
+   // this.sortrange = ""; // remembered range for sort tab
 
    this.moverange = ""; // remembered range from movefrom used by movepaste/moveinsert
 
@@ -662,6 +665,7 @@ SocialCalc.SpreadsheetControl = function() {
       };
 
    /**
+    * @DELETE
     * 排序
     * */
    // Sort
@@ -718,6 +722,7 @@ SocialCalc.SpreadsheetControl = function() {
    // this.editor.SettingsCallbacks.sort = {save: SocialCalc.SpreadsheetControlSortSave, load: SocialCalc.SpreadsheetControlSortLoad};
 
    /**
+    * @DELETE
     * audit，命令显示，无依赖
     * */
    // // Audit
@@ -754,6 +759,7 @@ SocialCalc.SpreadsheetControl = function() {
 
    // Comment
 /**
+ * @DELETE
  * 注释相关html代码
  * */
    // this.tabnums.comment = this.tabs.length;
@@ -772,6 +778,7 @@ SocialCalc.SpreadsheetControl = function() {
 
    // Names
 /**
+ * @DELETE
  * 命名相关代码
  * */
    // this.tabnums.names = this.tabs.length;
@@ -812,6 +819,7 @@ SocialCalc.SpreadsheetControl = function() {
 
    // Clipboard
 /**
+ * @DELETE
  * 剪贴板相关代码
  * */
    // this.tabnums.clipboard = this.tabs.length;
@@ -1380,6 +1388,7 @@ SocialCalc.SpreadsheetControlStatuslineCallback = function(editor, status, arg, 
 // Updates sort range proposed in the UI in element idPrefix+sortlist
 //
 /**
+ * @DELETE
  * 需要排序的单元格范围
  * */
 // SocialCalc.UpdateSortRangeProposal = function(editor) {
@@ -1401,6 +1410,7 @@ SocialCalc.SpreadsheetControlStatuslineCallback = function(editor, status, arg, 
 // Updates list of columns for choosing which to sort for Major, Minor, and Last sort
 //
 /**
+ * @DELETE
  * 排序的字典次序
  * */
 // SocialCalc.LoadColumnChoosers = function(spreadsheet) {
@@ -1531,6 +1541,7 @@ SocialCalc.DoCmd = function(obj, which) {
          SocialCalc.SpreadsheetControlExecuteCommand(obj, combostr, sstr);
          break;
 /**
+ * @DELETE
  * 设置排序范围
  * */
       // case "ok-setsort":
@@ -1555,6 +1566,7 @@ SocialCalc.DoCmd = function(obj, which) {
       //    SocialCalc.KeyboardFocus();
       //    return;
 /**
+ * @DELETE
  * 排序方法
  * */
       // case "dosort":
@@ -2436,6 +2448,7 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 
 // Sort
 /**
+ * @DELETE
  * 表格排序的方法
  * */
 // SocialCalc.SpreadsheetControlSortOnclick = function(s, t) {
@@ -2469,6 +2482,7 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 //
 //    }
 /**
+ * @DELETE
  * 排序命令的存储格式
  * */
 // SocialCalc.SpreadsheetControlSortSave = function(editor, setting) {
@@ -2501,6 +2515,7 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 //    return str+"\n";
 //    }
 /**
+ * @DELETE
  * 排序命令的加载／解析
  * */
 // SocialCalc.SpreadsheetControlSortLoad = function(editor, setting, line, flags) {
@@ -2548,6 +2563,7 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 // Comment
 
 /**
+ * @DELETE
  * 注释相关方法
  * */
 // SocialCalc.SpreadsheetControlCommentOnclick = function(s, t) {
@@ -2583,6 +2599,7 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 
 // Names
 /**
+ * @DELETE
  * 命名相关方法
  * */
 // SocialCalc.SpreadsheetControlNamesOnclick = function(s, t) {
@@ -2693,6 +2710,7 @@ SocialCalc.SpreadsheetControl.DoSum = function() {
 
 // Clipboard
 /**
+ * @DELETE
  * 剪贴板方法
  * */
 // SocialCalc.SpreadsheetControlClipboardOnclick = function(s, t) {
