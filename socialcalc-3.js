@@ -395,7 +395,7 @@ SocialCalc.Sheet.prototype.RecalcSheet = function() {return SocialCalc.RecalcShe
 //                         "*" for "style weight", size, or family, means use default (first look to sheet, then builtin)
 //    color:colornum:rgbvalue - text of color definition (e.g., rgb(255,255,255)) for color colornum
 //    border:bordernum:value - text of border definition (thickness style color) for border bordernum
-//    layout:layoutnum:value - text of vertical alignment and padding style for cell layout layoutnum (* for default):
+//    layout:layoutnum:value - text of vertical alignment and padding style for cell layout layoutnum (* for ==default):
 //                             vertical-alignment:vavalue;padding:topval rightval bottomval leftval;
 //    cellformat:cformatnum:value - text of cell alignment (left/center/right) for cellformat cformatnum
 //    valueformat:vformatnum:value - text of number format (see FormatValueForDisplay) for valueformat vformatnum (changed in v1.2)
