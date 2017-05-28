@@ -277,9 +277,10 @@ SocialCalc.ResetSheet = function(sheet, reload) {
          hide: {}
       };
    /**
-    * @DELETE
-    * 命名相关代码*/
-   // sheet.names={}; // Each is: {desc: "optional description", definition: "B5, A1:B7, or =formula"}
+    * 命名相关代码
+    * 但是不能删除，函数计算会用到这个属性
+    * */
+   sheet.names={}; // Each is: {desc: "optional description", definition: "B5, A1:B7, or =formula"}
    sheet.layouts=[];
    sheet.layouthash={};
    sheet.fonts=[];
