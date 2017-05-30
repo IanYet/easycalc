@@ -927,7 +927,7 @@ SocialCalc.InitializeSpreadsheetControl = function(spreadsheet, node, height, wi
 
    for (child=node.firstChild; child!=null; child=node.firstChild) {
       node.removeChild(child);
-      }
+   }
 
    // create the tabbed UI at the top
 
@@ -951,6 +951,11 @@ SocialCalc.InitializeSpreadsheetControl = function(spreadsheet, node, height, wi
 
    spreadsheet.currentTab = 0; // this is where we started
 
+    /**
+     * @DESCRIB
+     * 这部分代码注释根本没影响
+     * 更加说明tabreplacements是空的
+     * */
    for (style in spreadsheet.tabreplacements) {
       html = html.replace(spreadsheet.tabreplacements[style].regex, spreadsheet.tabreplacements[style].replacement);
       }
@@ -1108,7 +1113,7 @@ spreadsheet.Buttons = {
 SocialCalc.LocalizeString = function(str) {
    var cstr = SocialCalc.LocalizeStringList[str]; // found already this session?
    if (!cstr) { // no - look up
-      cstr = SocialCalc.Constants["s_loc_"+str.toLowerCase().replace(/\s/g, "_").replace(/\W/g, "X")] || str;
+      cstr = SocialCalc.Constants["s_loc_"+str.toLowerCase().replace(/\s/g, "_").replace(/\W/g, "        X")] || str;
       SocialCalc.LocalizeStringList[str] = cstr;
       }
    return cstr;
