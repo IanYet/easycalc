@@ -1,4 +1,0 @@
-# SocialCalc.TableEditor
-
----
-
