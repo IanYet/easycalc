@@ -157,22 +157,81 @@
         > spreadsheet.parentNode = node;
         >
         > spreadsheetDiv = document.createElement("div");
+        >
+        > 设置tab样式，创建tab栏的html代码，并加入dom树
+        >
+        > 加入tab栏的各种button，奇怪recalcbutton并没有出现在页面上
+        >
+        > 创建formula bar，包括inputbox与formula button，挂载载dom树上
+        >
+        > 创建view，加入dom树
+        >
+        > **初始化sheet view**
+        >
+        > 创建状态栏，加入dom树
+        >
+        > //需要重刷新界面
 
     - DoOnResize()
 
+    - - >根据SizeSSDiv()的值重新计算spreadsheet的尺寸
+
     - SizeSSDiv()
 
-    - ExcuteCommand(combostr, sstr)
+    - - > 计算出spreadsheetDiv合理的尺寸
+        >
+        > 并修改相应的属性值
+        >
+        > 判断spreadsheet的现有尺寸是否跟计算出的相同，若不同，返回true，大概意思是需要重算
+
+    - ExcuteCommand(combostr, sstr)//SpreadsheetControlExecuteCommand
+
+    - - >解析命令，combostr是指需要执行的命令字符串，sstr是指样式字符串
+        >
+        >命令最后全部集中在combostr中
+        >
+        >```javascript
+        >combostr = combostr.replace(/%C/g, str.C);
+        >   combostr = combostr.replace(/%R/g, str.R);
+        >   combostr = combostr.replace(/%N/g, str.N);
+        >   combostr = combostr.replace(/%S/g, str.S);
+        >   combostr = combostr.replace(/%W/g, str.W);
+        >   combostr = combostr.replace(/%P/g, str.P);
+        >```
+        >
+        >str.CRNSWP分别指：
+        >
+        >- C: 坐标coord，若是范围，指左上:右下
+        >- R: 范围，如果是单个单元格，坐标等于自己：自己
+        >- W: 应该是width？？？宽度，完全没明白这个属性干嘛用**未完**
+        >- S: style
+        >- N: 换行
+        >- P: 换成％？？？？
+
+      - 丢给tableeditor的EditorScheduleSheetCommands(combostr, true, false)执行命令*true: saveundo, false: ignorebusy*
 
     - CreateSheetHTML()
 
-    - CreateSpreadsheetSave(otherparts)
-
-    - DecodeSpreadsheetSave(str)
+    - - 返回整个表单的html。。。貌似是为了**测试**而用？？？
 
     - CreateCellHTML(coord)
 
+    - - 返回一个cell的html，。。。也是为了**测试**吧
+
     - CreateCellHTMLSave(range)
+
+    - - 返回cell的储存格式，***以确认，createHTML系列方法都是为了在页面alert，都是为了测试***
+
+    - CreateSpreadsheetSave(otherparts)
+
+    - - >- 这个方法本质上也是为了测试，输出sheetsave
+        >- 不过在sheetsave前面加上了version, content-type, boundary等参数
+        >- 实际上sheetsave还是调用CreateSheetSave()方法
+        >- editor setting是调用SavaEditorSetting()方法
+
+    - DecodeSpreadsheetSave(str)
+
+    - - > 页面上reload按钮之行后，可以加载之前save的sheetsave
 
     - ParseSheetSave(str) = sheet.ParseSheetSave(str)
 
@@ -208,3 +267,19 @@
       > ```
 
     - SocialCalc.GetSpreadsheetControlObject()，得到当前SpreadsheetControl对象
+
+    - SocialCalc.SetTab(obj)，切换tab，改变相应的样式与view
+
+    - SocialCalc.SpreadsheetControlStatuslineCallback(editor, status, arg, params)//设置状态栏内容
+
+    - SocialCalc.CmdGotFocus(obj)，当前元素获得键盘事件焦点
+
+    - SocialCalc.DoButtonCmd(e, buttoninfo, bobj)，bobj是button obj。也就是说把tab栏的命令也放在cmd一类了
+
+    - SocialCalc.DoCmd(obj, which)，which是具体命令，也就是解析各种命令，然后交给executecommand执行
+
+    - - > undo, redo,**未完**,
+
+    - SocialCalc.SpreadsheetCmdLookup = {}，命令预览
+
+    - SocialCalc.SpreadsheetCmdSLookup = {}，另一些命令预览，负责样式
