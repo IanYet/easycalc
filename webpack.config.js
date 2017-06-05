@@ -15,5 +15,13 @@ module.exports = {
 			defaultStyle: path.resolve(__dirname, "./config/defaultStyle.json")
 		}
 	},
+	devServer: {
+		historyApiFallback: {
+			rewrites: [
+				{ from: /./, to: './app.html' }
+			]
+		},
+		noInfo: false
+	},
 	devtool: "source-map"
 }
