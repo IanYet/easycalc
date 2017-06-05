@@ -3,8 +3,18 @@
 <html>
 <head>
     <title>QianMo</title>
+    <!--设置QianMoApp的父组件高与宽, 由用户制定-->
+    <!--但是这是可选的，会有默认样式-->
+    <!--默认宽：800px，高：600px，若用户设定的宽高小于默认值，则取默认值-->
+    <!--可以在配置文件里，修改默认值-->
+    <style type="text/css">
+        .QianMo{
+            height: 50%;
+            width: 50%;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="QianMoApp" class="QianMo"></div>
 </body>
 </html>
