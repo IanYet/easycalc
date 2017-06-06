@@ -12,7 +12,7 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			defaultStyle: path.resolve(__dirname, "./config/defaultStyle.json")
+			style: path.resolve(__dirname, "./config/style.js")
 		}
 	},
 	devServer: {

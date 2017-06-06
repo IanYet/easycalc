@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,8 +71,49 @@
 /***/ (function(module, exports) {
 
 /**
+ * 样式常量类
+ * 整张表命名为：sheetBoard
+ * 表格上半部分叫做：sheetTool
+ * 表格叫做：sheetBody
+ *
+ * 这里只设置默认尺寸
+ * 即：如果没有SheetView里面设置尺寸，则取这里的值
+ */
+
+
+var DefaultStyle =  {
+
+	sheetBoard: {
+		defaultHeight: 600,
+		defaultWidth: 800
+	},
+	sheetTool: {
+		defaultHeight: 50,
+		defaultWidth: sheetBoard.defaultWidth
+	},
+	sheetBody: {
+		defaultHeight: sheetBoard.defaultHeight - this.sheetTool.defaultHeight,
+		defaultWidth: sheetBoard.defaultWidth
+	}
+}
+
+module.exports.DefaultStyle = DefaultStyle
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
  * Created by Ian on 17/6/5.
  */
+
+
+
+var s = __webpack_require__(0).DefaultStyle
+
+console.log(s)
+
 
 /***/ })
 /******/ ]);
