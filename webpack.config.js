@@ -12,7 +12,13 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			style: path.resolve(__dirname, "./config/style.js")
+			config: path.resolve(__dirname, "./config/config.js"),
+			Cell: path.resolve(__dirname, "./component/Cell.js"),
+			SheetGrid: path.resolve(__dirname, "./component/SheetGrid.js"),
+			SheetTool: path.resolve(__dirname, "./component/SheetTool.js"),
+			Sheet: path.resolve(__dirname, "./component/Sheet.js"),
+			Render: path.resolve(__dirname, "./component/Render.js"),
+			Controller: path.resolve(__dirname, "./component/Controller.js")
 		}
 	},
 	devServer: {

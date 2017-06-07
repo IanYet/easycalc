@@ -89,11 +89,11 @@ var DefaultStyle =  {
 	},
 	sheetTool: {
 		defaultHeight: 50,
-		defaultWidth: sheetBoard.defaultWidth
+		defaultWidth: 800
 	},
 	sheetBody: {
-		defaultHeight: sheetBoard.defaultHeight - this.sheetTool.defaultHeight,
-		defaultWidth: sheetBoard.defaultWidth
+		defaultHeight: 750,
+		defaultWidth: 800
 	}
 }
 
@@ -109,11 +109,9 @@ module.exports.DefaultStyle = DefaultStyle
  */
 
 
-
 var s = __webpack_require__(0).DefaultStyle
 
 console.log(s)
-
 
 /***/ })
 /******/ ]);

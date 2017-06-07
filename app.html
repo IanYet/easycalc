@@ -5,12 +5,47 @@
     <title>QianMo</title>
     <!--设置QianMoApp的父组件高与宽, 由用户制定-->
     <!--但是这是可选的，会有默认样式-->
-    <!--默认宽：800px，高：600px，若用户设定的宽高小于默认值，则取默认值-->
     <!--可以在配置文件里，修改默认值-->
     <style type="text/css">
+        @font-face {
+            font-family: icon;
+            src: url('./assets/icon/icomoon.eot');
+            src: url('./assets/icon/icomoon.woff'),
+                url('./assets/icon/icomoon.svg'),
+                url('./assets/icon/icomoon.ttf')
+        }
+        body, div, table, th, td, tr{
+            box-sizing: border-box;
+        }
         .QianMo{
-            height: 600px;
-            width: 800px;
+            border: none;
+            font-family: icon;
+        }
+        table
+        {
+            border-collapse:collapse;
+            border-spacing: 10px;
+            padding: 0;
+            margin: 0;
+
+            border: none;
+        }
+
+        table, td, th, tr
+        {
+            border:1px solid #999999;
+            padding: 0;
+            margin: 0;
+
+            font-size: 8px;
+        }
+        input{
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        input:focus{
+            outline: none;
         }
     </style>
 </head>
